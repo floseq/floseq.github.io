@@ -111,7 +111,7 @@ section {
 
 #sobremi {
     background-color: #f2f2f2;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: black;
@@ -136,6 +136,50 @@ section {
     text-indent: 30px;
     font-size: 16px;
     line-height: 1.6;
+}
+
+.formulario {
+    text-align: center;
+}
+
+.formulario p {
+    font-size: 16px;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.formulario form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.formulario label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.formulario input, .formulario textarea, .formulario select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario #button {
+    background-color: #fff;
+    color: #6D62FC;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.formulario #button:hover {
+    box-shadow: 4px 4px 4px 4px rgba(255, 255, 255, 0.488);
 }
 
 footer {

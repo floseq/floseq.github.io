@@ -59,7 +59,27 @@
 
         <section id="contacto">
             <h2>Contacto</h2>
-
+            <div class="formulario">
+                <p>¡Me encantaría saber de ti! Si tienes alguna pregunta, consulta o simplemente quieres decir hola, no dudes en ponerte en contacto utilizando el siguiente formulario. Estoy ansiosa por colaborar contigo en futuros proyectos.</p>
+                <form action="" method="get">
+                    <label for="remitente">De:</label>
+                        <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" required>
+                        <input type="email" name="correo" id="correo" placeholder="Escribe tu correo electrónico" required><br>
+                    <label for="tema">Temática:</label>
+                        <select id="tema" name="tema" required>
+                            <option value="" hidden selected disabled>-- Elige una tématica --</option>
+                            <option value="1">Consulta</option>
+                            <option value="2">Propuesta</option>
+                            <option value="3">Reporte</option>                    
+                            <option value="4">Otro</option>
+                        </select><br>
+                    <label for="asunto">Asunto:</label>
+                        <input type="text" name="asunto" id="asunto" placeholder="Escribe el asunto" required><br>
+                    <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    <input type="submit" value="Enviar" id="button">
+                </form>
+            </div>
         </section>
 
     </div>
