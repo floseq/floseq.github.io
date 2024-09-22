@@ -1,199 +1,292 @@
 body {
-    font-family: Poppins, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: black;
+  font-family: Poppins, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: black;
 }
 
 header {
-    background-color: #6D62FC;
-    color: #fff;
-    text-align: center;
-    padding: 0px 60px 0px 60px;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #6d62fc;
+  color: #fff;
+  text-align: center;
+  padding: 0px 60px 0px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header img{
-    max-height: 7ch;
-    padding: 10px 0px 10px 0px;
+header img {
+  max-height: 7ch;
+  padding: 10px 0px 10px 0px;
 }
 
 nav {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
 }
 
 /* div hero */
 .hero {
-    display: flex;
-    justify-content: space-evenly; 
-    align-items: center; /* Alineación vertical al centro */
-    padding: 60px;
-    height: 300px;
+  display: flex;
+  flex-wrap: wrap-reverse; /* Cambia el orden de los elementos */
+  justify-content: space-evenly;
+  align-items: center; /* Alineación vertical al centro */
+  padding: 60px;
+  text-align: center;
+  /* height: 300px; */
 }
 
 /* imagen del hero */
-.hero img{
-    max-width: 350px;
+.hero img {
+  max-width: 100%;
+  height: auto;
 }
 
+/* div de logos del hero */
 .logos {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
+/* logos del hero */
 div.logos img {
-    max-width: 24px;
-    padding: 15px;
+  max-width: 24px;
+  padding: 15px;
 }
 
 /* titulo de hero */
-h1.intro{
-    font-size: 24px;
-    font-weight: 300;
-    max-width: 450px;
-    text-align: left;
+h1.intro {
+  font-size: 24px;
+  font-weight: 300;
+  max-width: 450px;
+  text-align: left;
 }
 
 /* div de secciones */
 div.container {
-    max-width: 960px;
-    margin: 0 auto;
- }
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 section {
-    background-color: #6a5acd;
-    color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+  background-color: #6a5acd;
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
+/* div de proyectos */
 .proyectos {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-evenly;
+  margin-bottom: 20px;
+  display: flex; /* Alinea los elementos en fila */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten al ancho del contenedor */
+  justify-content: space-evenly;
 }
 
+/* tarjeta de proyecto */
 .cardProyecto {
-    padding: 30px;
-    background-color: #fff;
-    color: black;
-    margin: 10px;
-    border-radius: 10px;
+  flex: 1 1 300px; /* Ajusta el ancho de la tarjeta. Los items crecen y se achican relativamente y el ancho base es 300px. flex-grow flex-shrink flex-basis */
+  padding: 30px;
+  background-color: #fff;
+  color: black;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 .cardProyecto img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .cardProyecto h3 {
-    font-size: 20px;
-    font-weight: 600;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .cardProyecto p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
+/* div de contacto */
 #sobremi {
-    background-color: #f2f2f2;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: black;
+  background-color: #f2f2f2;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .imagen-perfil {
-    width: 200px; /* Ajusta el ancho deseado para la imagen cuadrada */
-    height: 200px; /* Ajusta la altura deseada para la imagen cuadrada */
-    overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
-    border-radius: 50%; /* Hace que la imagen sea circular */
-    float: left;
-    margin-right: 25px;
-}
-  
-.imagen-perfil img {
-    width: 100%; /* Asegura que la imagen ocupe todo el contenedor */
-    height: 100%; /* Asegura que la imagen ocupe todo el contenedor */
-    object-fit: cover; /* Recorta la imagen para ajustarse al contenedor */
-}
-  
-.descripcion p {
-    text-indent: 30px;
-    font-size: 16px;
-    line-height: 1.6;
+  width: 200px; /* Ajusta el ancho deseado para la imagen cuadrada */
+  height: 200px; /* Ajusta la altura deseada para la imagen cuadrada */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  float: left; /* Alinea la imagen a la izquierda */
+  margin: 0 auto 25px;
 }
 
-.formulario {
-    text-align: center;
+.imagen-perfil img {
+  width: 100%; /* Asegura que la imagen ocupe todo el contenedor */
+  height: 100%; /* Asegura que la imagen ocupe todo el contenedor */
+  object-fit: cover; /* Recorta la imagen para ajustarse al contenedor */
+}
+
+.descripcion p {
+  text-indent: 30px;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .formulario p {
-    font-size: 16px;
-    width: 75%;
-    margin: auto;
-    margin-bottom: 20px;
+  font-size: 16px;
+  text-align: center;
+  width: 75%;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 .formulario form {
-    max-width: 500px;
-    margin: 0 auto;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .formulario label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
+  display: block; /* Hace que el texto del label esté en una línea diferente */
+  font-weight: 500;
+  margin-bottom: 6px;
 }
 
-.formulario input, .formulario textarea, .formulario select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.formulario input,
+.formulario textarea,
+.formulario select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .formulario #button {
-    background-color: #fff;
-    color: #6D62FC;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+  width: 100%;
+  background-color: #fff;
+  color: #6d62fc;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .formulario #button:hover {
-    box-shadow: 4px 4px 4px 4px rgba(255, 255, 255, 0.488);
-}
-
-footer {
+  box footer {
     text-align: center;
-    background-color: #6D62FC;
+    background-color: #6d62fc;
     color: #fff;
     padding: 20px;
-    display: flex;
+    display: flex; /* Alinea los elementos en fila */
     align-items: center;
-    flex-direction: column;
-}
+    flex-direction: column; /* Alinea los elementos en columna */
+  }
 
-footer img{
+  footer img {
     padding: 15px;
     max-height: 10ch;
-}
+  }
 
+  @media (min-width: 768px) {
+    /* Media query para pantallas de 768px o más */
+    .hero {
+      flex-direction: row; /* Alinea los elementos en fila */
+      text-align: left;
+    }
+
+    .hero .intro {
+      max-width: 450px;
+    }
+
+    .proyectos {
+      flex-direction: row;
+    }
+
+    .imagen-perfil {
+      float: left;
+      margin-right: 25px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Media query para pantallas de 768px o menos */
+    header {
+      flex-direction: column; /* Alinea los elementos en columna */
+    }
+
+    nav {
+      flex-direction: column;
+    }
+
+    nav a {
+      margin: 10px 0;
+    }
+
+    .hero {
+      padding: 30px;
+    }
+
+    .hero img {
+      max-width: 100%;
+    }
+
+    .hero .intro {
+      text-align: center;
+    }
+
+    .proyectos {
+      flex-direction: column;
+    }
+
+    .cardProyecto {
+      flex: 1 1 100%; /* Ajusta el ancho de la tarjeta. Los items crecen y se achican relativamente y el ancho base es 100%. flex-grow flex-shrink flex-basis */
+      margin: 10px auto;
+    }
+
+    #sobremi {
+      flex-direction: column;
+      display: flex;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    .imagen-perfil {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 25px;
+      align-items: center;
+    }
+
+    .descripcion p {
+      text-indent: 0;
+    }
+
+    .formulario p {
+      width: 100%;
+    }
+
+    .formulario form {
+      max-width: 100%;
+    }
+  }
+}
