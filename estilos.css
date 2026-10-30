@@ -1,292 +1,622 @@
+/* =========================================================
+   Tipografía: Uncut Sans (licencia OFL, archivos en /fonts)
+   ========================================================= */
+@font-face {
+  font-family: "Uncut Sans";
+  src: url("fonts/uncut-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uncut Sans";
+  src: url("fonts/uncut-sans-latin-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uncut Sans";
+  src: url("fonts/uncut-sans-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uncut Sans";
+  src: url("fonts/uncut-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uncut Sans";
+  src: url("fonts/uncut-sans-latin-600-italic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uncut Sans";
+  src: url("fonts/uncut-sans-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   Variables: colores y medidas que se repiten
+   ========================================================= */
+:root {
+  --negro: #111111;
+  --blanco: #ffffff;
+  --gris-tarjeta: #ececec;
+  --gris-texto: #5f5f5f;
+  --gris-etiqueta: #9b9b9b;
+  --verde: #2f9e44;
+  --azul: #3b7dd8;
+
+  --radio: 28px;
+  --margen: clamp(16px, 5vw, 80px);
+  --ancho-max: 1280px;
+  /* margen lateral que alinea cabecera y pie con el contenido centrado */
+  --margen-alineado: max(var(--margen), calc((100% - var(--ancho-max)) / 2 + var(--margen)));
+}
+
+/* =========================================================
+   Idiomas: se oculta el idioma que no está activo
+   ========================================================= */
+html[lang="es"] .en,
+html[lang="en"] .es {
+  display: none;
+}
+
+/* =========================================================
+   Base
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* para que la cabecera fija no tape los títulos */
+}
+
 body {
-  font-family: Poppins, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #fff;
-  color: black;
+  font-family: "Uncut Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--negro);
+  background-color: var(--blanco);
+  -webkit-font-smoothing: antialiased;
 }
 
-header {
-  background-color: #6d62fc;
-  color: #fff;
-  text-align: center;
-  padding: 0px 60px 0px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-header img {
-  max-height: 7ch;
-  padding: 10px 0px 10px 0px;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-}
-
-/* div hero */
-.hero {
-  display: flex;
-  flex-wrap: wrap-reverse; /* Cambia el orden de los elementos */
-  justify-content: space-evenly;
-  align-items: center; /* Alineación vertical al centro */
-  padding: 60px;
-  text-align: center;
-  /* height: 300px; */
-}
-
-/* imagen del hero */
-.hero img {
+img {
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* div de logos del hero */
-.logos {
-  display: flex;
-  justify-content: center;
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-/* logos del hero */
-div.logos img {
-  max-width: 24px;
-  padding: 15px;
+p {
+  margin: 0 0 1em;
 }
 
-/* titulo de hero */
-h1.intro {
-  font-size: 24px;
-  font-weight: 300;
-  max-width: 450px;
-  text-align: left;
+a {
+  color: inherit;
 }
 
-/* div de secciones */
-div.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
+:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 3px;
 }
 
-section {
-  background-color: #6a5acd;
-  color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+/* Enlace oculto para quienes navegan con teclado */
+.saltar {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  padding: 8px 16px;
+  background: var(--negro);
+  color: var(--blanco);
+  border-radius: 999px;
+  z-index: 20;
+}
+.saltar:focus {
+  top: 12px;
 }
 
-/* div de proyectos */
-.proyectos {
-  margin-bottom: 20px;
-  display: flex; /* Alinea los elementos en fila */
-  flex-wrap: wrap; /* Permite que los elementos se ajusten al ancho del contenedor */
-  justify-content: space-evenly;
+/* =========================================================
+   Botón píldora (el estilo de botón del portfolio PDF)
+   ========================================================= */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.45em 1.1em;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.pill:hover {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+.pill--chica {
+  font-size: 0.8rem;
+  padding: 0.3em 0.9em;
 }
 
-/* tarjeta de proyecto */
-.cardProyecto {
-  flex: 1 1 300px; /* Ajusta el ancho de la tarjeta. Los items crecen y se achican relativamente y el ancho base es 300px. flex-grow flex-shrink flex-basis */
-  padding: 30px;
-  background-color: #fff;
-  color: black;
-  margin: 10px;
-  border-radius: 10px;
-}
-
-.cardProyecto img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.cardProyecto h3 {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.cardProyecto p {
-  font-size: 16px;
-}
-
-/* div de contacto */
-#sobremi {
-  background-color: #f2f2f2;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: black;
+.botones {
   display: flex;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
-.imagen-perfil {
-  width: 200px; /* Ajusta el ancho deseado para la imagen cuadrada */
-  height: 200px; /* Ajusta la altura deseada para la imagen cuadrada */
-  overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
-  border-radius: 50%; /* Hace que la imagen sea circular */
-  float: left; /* Alinea la imagen a la izquierda */
-  margin: 0 auto 25px;
+/* =========================================================
+   Cabecera
+   ========================================================= */
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px var(--margen-alineado);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
 }
 
-.imagen-perfil img {
-  width: 100%; /* Asegura que la imagen ocupe todo el contenedor */
-  height: 100%; /* Asegura que la imagen ocupe todo el contenedor */
-  object-fit: cover; /* Recorta la imagen para ajustarse al contenedor */
+.marca {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
 }
 
-.descripcion p {
-  text-indent: 30px;
-  font-size: 16px;
-  line-height: 1.6;
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.menu a {
+  text-decoration: none;
+}
+.menu a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.formulario p {
-  font-size: 16px;
-  text-align: center;
-  width: 75%;
-  margin: auto;
+/* =========================================================
+   Hero (inicio)
+   ========================================================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: end;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 48px var(--margen) 96px;
+}
+
+.hero__foto {
+  width: 100%;
+  border-radius: var(--radio);
+  object-fit: cover;
+}
+
+.hero__nombre {
+  margin-top: 24px;
+  font-size: clamp(2.6rem, 6.5vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.hero__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* =========================================================
+   Tarjetas grises (estilo del CV)
+   ========================================================= */
+.tarjeta {
+  background: var(--gris-tarjeta);
+  border-radius: var(--radio);
+  padding: 24px 28px;
   margin-bottom: 20px;
 }
-
-.formulario form {
-  max-width: 500px;
-  margin: 0 auto;
+.tarjeta p:last-child {
+  margin-bottom: 0;
 }
-
-.formulario label {
-  display: block; /* Hace que el texto del label esté en una línea diferente */
-  font-weight: 500;
+.tarjeta--grande {
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  padding: 32px 36px;
+  margin: 0;
+}
+.tarjeta--chica {
+  padding: 18px 20px;
+  margin: 0;
+}
+.tarjeta--chica h4 {
+  font-size: 1rem;
   margin-bottom: 6px;
 }
-
-.formulario input,
-.formulario textarea,
-.formulario select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.tarjeta--chica p {
+  font-size: 0.9rem;
+  color: var(--gris-texto);
 }
 
-.formulario #button {
-  width: 100%;
-  background-color: #fff;
-  color: #6d62fc;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+.tarjeta__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
-.formulario #button:hover {
-  box footer {
-    text-align: center;
-    background-color: #6d62fc;
-    color: #fff;
+.tarjeta__cabeza {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.tarjeta__cabeza h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.tarjeta__cabeza p {
+  margin: 2px 0 0;
+  color: var(--gris-texto);
+  font-size: 0.95rem;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Puntito de estado y fechas */
+.punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gris-etiqueta);
+}
+.punto--activo {
+  background: var(--verde);
+}
+.check {
+  color: var(--azul);
+  font-size: 0.9rem;
+}
+.estrella {
+  color: #e8b400;
+}
+
+.fecha {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: var(--gris-etiqueta);
+  color: var(--blanco);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.fecha--actual {
+  background: transparent;
+  border: 1.5px solid var(--verde);
+  color: var(--verde);
+}
+.fecha--completa {
+  background: transparent;
+  border: 1.5px solid var(--azul);
+  color: var(--azul);
+}
+
+/* Listas con flecha → */
+.flechas {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  font-size: 0.95rem;
+}
+.flechas li {
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+  margin-bottom: 6px;
+}
+.flechas li::before {
+  content: "→ ";
+  padding-right: 0.3em;
+}
+
+/* =========================================================
+   Secciones generales
+   ========================================================= */
+.seccion {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 64px var(--margen);
+}
+.seccion > h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+/* =========================================================
+   Índice de proyectos (grilla de tarjetas)
+   ========================================================= */
+.indice {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 32px 24px;
+}
+
+.indice__item {
+  text-decoration: none;
+}
+.indice__item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+  border-radius: var(--radio);
+  background: var(--gris-tarjeta);
+  margin-bottom: 14px;
+  transition: transform 0.3s;
+}
+.indice__item:hover img {
+  transform: scale(0.98);
+}
+.indice__item h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.indice__item p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--gris-texto);
+}
+
+/* =========================================================
+   Proyecto (texto a la izquierda, imágenes a la derecha)
+   ========================================================= */
+.proyecto {
+  --acento: var(--negro); /* cada proyecto lo cambia en el HTML */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 56px;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 80px var(--margen);
+  border-top: 1px solid var(--gris-tarjeta);
+}
+
+.proyecto__texto {
+  position: sticky; /* el texto acompaña mientras se ven las imágenes */
+  top: 96px;
+  align-self: start;
+}
+
+.proyecto__titulo {
+  color: var(--acento);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+}
+
+.etiquetas {
+  margin: 10px 0 28px;
+  font-size: 0.9rem;
+  color: var(--gris-texto);
+}
+
+.cita {
+  margin: 28px 0;
+  color: var(--acento);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.cita--italica {
+  font-style: italic;
+}
+
+.nota {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--gris-texto);
+}
+
+/* Galería: dos columnas; .ancho ocupa toda la fila */
+.galeria {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.galeria figure {
+  margin: 0;
+}
+.galeria figcaption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--gris-texto);
+}
+.ancho {
+  grid-column: 1 / -1;
+}
+.media {
+  width: 100%;
+  border-radius: 20px;
+  background: var(--gris-tarjeta);
+}
+
+/* =========================================================
+   Sobre mí (CV)
+   ========================================================= */
+.cv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.cv__titulo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 40px 0 20px;
+}
+.cv > div > .cv__titulo:first-child {
+  margin-top: 8px;
+}
+
+.habilidades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.logros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 20px;
+}
+.logros .tarjeta {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.logros h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.logros p {
+  margin: 4px 0 16px;
+  font-size: 0.9rem;
+  color: var(--gris-texto);
+}
+.logros .pill {
+  margin-top: auto; /* empuja el botón al fondo de la tarjeta */
+  align-self: flex-end;
+}
+
+/* =========================================================
+   Contacto (pie negro, como la última página del portfolio)
+   ========================================================= */
+.contacto {
+  margin-top: 64px;
+  padding: 96px var(--margen-alineado) 32px;
+  background: var(--negro);
+  color: var(--blanco);
+}
+
+.contacto__fila {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 96px;
+}
+
+.contacto__nombre {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.contacto__texto {
+  margin: 8px 0 0;
+  color: #bdbdbd;
+}
+
+.contacto .pill:hover {
+  background-color: var(--blanco);
+  color: var(--negro);
+}
+
+.contacto__legal {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #9a9a9a;
+}
+
+/* =========================================================
+   Responsive: tablets y celulares
+   ========================================================= */
+@media (max-width: 900px) {
+  .hero,
+  .proyecto,
+  .cv {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    padding-bottom: 64px;
+  }
+  .proyecto {
+    gap: 32px;
+    padding: 56px var(--margen);
+  }
+  .proyecto__texto {
+    position: static; /* en pantallas chicas el texto no queda fijo */
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+  .menu {
+    gap: 14px;
+    font-size: 0.9rem;
+  }
+  /* En celular se ocultan los enlaces del menú y queda solo el idioma */
+  .menu a {
+    display: none;
+  }
+  .galeria,
+  .habilidades {
+    grid-template-columns: 1fr;
+  }
+  .tarjeta {
     padding: 20px;
-    display: flex; /* Alinea los elementos en fila */
-    align-items: center;
-    flex-direction: column; /* Alinea los elementos en columna */
   }
-
-  footer img {
-    padding: 15px;
-    max-height: 10ch;
+  .tarjeta--grande {
+    padding: 24px;
   }
+}
 
-  @media (min-width: 768px) {
-    /* Media query para pantallas de 768px o más */
-    .hero {
-      flex-direction: row; /* Alinea los elementos en fila */
-      text-align: left;
-    }
-
-    .hero .intro {
-      max-width: 450px;
-    }
-
-    .proyectos {
-      flex-direction: row;
-    }
-
-    .imagen-perfil {
-      float: left;
-      margin-right: 25px;
-    }
+/* Para quienes prefieren menos animaciones */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-
-  @media (max-width: 768px) {
-    /* Media query para pantallas de 768px o menos */
-    header {
-      flex-direction: column; /* Alinea los elementos en columna */
-    }
-
-    nav {
-      flex-direction: column;
-    }
-
-    nav a {
-      margin: 10px 0;
-    }
-
-    .hero {
-      padding: 30px;
-    }
-
-    .hero img {
-      max-width: 100%;
-    }
-
-    .hero .intro {
-      text-align: center;
-    }
-
-    .proyectos {
-      flex-direction: column;
-    }
-
-    .cardProyecto {
-      flex: 1 1 100%; /* Ajusta el ancho de la tarjeta. Los items crecen y se achican relativamente y el ancho base es 100%. flex-grow flex-shrink flex-basis */
-      margin: 10px auto;
-    }
-
-    #sobremi {
-      flex-direction: column;
-      display: flex;
-      flex-wrap: wrap;
-      text-align: left;
-    }
-
-    .imagen-perfil {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 25px;
-      align-items: center;
-    }
-
-    .descripcion p {
-      text-indent: 0;
-    }
-
-    .formulario p {
-      width: 100%;
-    }
-
-    .formulario form {
-      max-width: 100%;
-    }
+  * {
+    transition: none !important;
   }
 }

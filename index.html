@@ -3,102 +3,639 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Florencia Sequeira</title>
+    <title>Florencia Sequeira · Diseño gráfico</title>
+    <meta
+      name="description"
+      content="Portfolio de Florencia Sequeira, diseñadora gráfica: identidad visual, diseño editorial, ilustración y comunicación institucional."
+    />
+    <link rel="preload" href="fonts/uncut-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/uncut-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
-    <header>
-      <img src="images/Recurso 5.png" alt="logo" />
-      <nav>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#sobremi">Sobre mí</a>
-        <a href="#contacto">Contacto</a>
+    <!-- Cómo funcionan los idiomas:
+         cada texto está dos veces, con class="es" y class="en".
+         El CSS oculta el idioma que no está activo y script.js cambia entre ellos. -->
+    <a class="saltar" href="#contenido">
+      <span class="es">Saltar al contenido</span><span class="en">Skip to content</span>
+    </a>
+
+    <header class="cabecera">
+      <a class="marca" href="#inicio">Florencia Sequeira</a>
+      <nav class="menu">
+        <a href="#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+        <a href="#sobremi"><span class="es">Sobre mí</span><span class="en">About</span></a>
+        <a href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
+        <button class="pill pill--chica" id="cambiar-idioma" type="button" aria-label="View in English">
+          <span class="es">EN</span>
+          <span class="en">ES</span>
+        </button>
       </nav>
     </header>
 
-    <div class="hero">
-      <h1 class="intro">
-        ¡Hola! Soy Florencia, diseñadora de experiencias visuales que fusiona arte y accesibilidad.
-        <div class="logos">
-          <img src="images/004-linkedin.png" alt="linkedin logo" />
-          <img src="images/005-instagram.png" alt="instagram logo" />
+    <main id="contenido">
+      <!-- ========== INICIO ========== -->
+      <section class="hero" id="inicio">
+        <div class="hero__perfil">
+          <img
+            class="hero__foto"
+            src="images/proyectos/perfil.jpg"
+            width="1000"
+            height="485"
+            alt="Retrato de Florencia Sequeira sonriendo"
+            data-alt-en="Portrait of Florencia Sequeira smiling"
+          />
+          <h1 class="hero__nombre">Florencia Sequeira</h1>
         </div>
-      </h1>
-      <div class="ilustracion">
-        <img src="images/undraw_appreciation_0xsh.svg" alt="ilustracion" />
+
+        <div class="hero__texto">
+          <div class="tarjeta tarjeta--grande">
+            <p class="es">
+              <strong>Diseñadora gráfica</strong> con experiencia en <strong>contenido visual digital e impreso.</strong> He trabajado en proyectos
+              culturales y de <strong>comunicación institucional y comercial.</strong>
+            </p>
+            <p class="en">
+              <strong>Graphic designer</strong> with experience in <strong>digital and print visual content.</strong> I have worked on cultural
+              projects and on <strong>institutional and commercial communication.</strong>
+            </p>
+            <p class="es">
+              Manejo de <strong>Adobe Creative Suite, Figma, Canva</strong> y herramientas colaborativas. Aprendiendo
+              <strong>UX/UI Design y diseño editorial.</strong>
+            </p>
+            <p class="en">
+              Skilled in <strong>Adobe Creative Suite, Figma, Canva</strong> and collaborative tools. Currently learning
+              <strong>UX/UI Design and editorial design.</strong>
+            </p>
+          </div>
+
+          <div class="botones">
+            <a class="pill" href="#proyectos"><span class="es">Ver proyectos</span><span class="en">See projects</span> ↓</a>
+            <a class="pill" href="docs/Florencia-Sequeira-CV-ES.pdf" target="_blank" rel="noopener">
+              <span class="es">CV</span><span class="en">CV (Spanish)</span> ↗
+            </a>
+            <a class="pill" href="https://www.linkedin.com/in/floseq/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="pill" href="mailto:florenciasequeira@gmail.com">Mail ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== PROYECTOS: índice ========== -->
+      <section class="seccion" id="proyectos">
+        <h2><span class="es">Proyectos</span><span class="en">Projects</span></h2>
+
+        <div class="indice">
+          <a class="indice__item" href="#panuelo">
+            <img src="images/proyectos/panuelo-lazo.jpg" width="1200" height="1350" alt="" loading="lazy" />
+            <h3><span class="es">Pañuelo × Lucha contra el Cáncer de Mama</span><span class="en">Scarf × Breast Cancer Awareness</span></h3>
+            <p><span class="es">Ilustración</span><span class="en">Illustration</span></p>
+          </a>
+          <a class="indice__item" href="#cordoba">
+            <img src="images/proyectos/cordoba-afiche.jpg" width="1000" height="1589" alt="" loading="lazy" />
+            <h3>Cordoba FW21-22 × Palomo Spain</h3>
+            <p>
+              <span class="es">Identidad visual · Diseño editorial</span><span class="en">Visual identity · Editorial design</span>
+            </p>
+          </a>
+          <a class="indice__item" href="#emilia">
+            <img src="images/proyectos/emilia-poster.jpg" width="1000" height="1419" alt="" loading="lazy" />
+            <h3>Emilia</h3>
+            <p><span class="es">Ilustración</span><span class="en">Illustration</span></p>
+          </a>
+          <a class="indice__item" href="#ruda">
+            <img src="images/proyectos/ruda-libros.jpg" width="1800" height="1175" alt="" loading="lazy" />
+            <h3>Ruda Ediciones</h3>
+            <p>
+              <span class="es">Ilustración · Identidad visual · Diseño editorial</span
+              ><span class="en">Illustration · Visual identity · Editorial design</span>
+            </p>
+          </a>
+          <a class="indice__item" href="#ucu">
+            <img src="images/proyectos/ucu-piezas.jpg" width="1800" height="1364" alt="" loading="lazy" />
+            <h3><span class="es">Diseño gráfico × Universidad Católica del Uruguay</span><span class="en">Graphic design × Universidad Católica del Uruguay</span></h3>
+            <p>
+              <span class="es">Comunicación institucional · Vía pública · Redes sociales</span
+              ><span class="en">Institutional communication · Outdoor · Social media</span>
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========== PROYECTO: Pañuelo ========== -->
+      <!-- --acento es el color de cada proyecto (lo usa estilos.css) -->
+      <article class="proyecto" id="panuelo" style="--acento: #cf6487">
+        <div class="proyecto__texto">
+          <h2 class="proyecto__titulo"><span class="es">Pañuelo × Lucha contra el Cáncer de Mama</span><span class="en">Scarf × Breast Cancer Awareness</span></h2>
+          <p class="etiquetas"><span class="es">Ilustración</span><span class="en">Illustration</span></p>
+
+          <p class="es">
+            En la campaña 2022 de la Lucha contra el Cáncer de Mama, Montevideo Shopping produjo 5.000 pañuelos para comercializar a beneficio de
+            la Comisión de Lucha contra el Cáncer.
+          </p>
+          <p class="en">
+            For its 2022 Breast Cancer Awareness campaign, Montevideo Shopping produced 5,000 scarves, sold to benefit the Uruguayan Cancer
+            Commission.
+          </p>
+          <p class="es">
+            Para conocer más, desde la organización compartieron <strong>testimonios de quienes transitaron el diagnóstico</strong> o fueron
+            acompañantes. Al momento de diseñar el pañuelo, <strong>compartí los testimonios con mi madre,</strong> y me comentó que una de las
+            experiencias era muy similar a la suya. Ella forma parte de un grupo de apoyo a pacientes con este cáncer.
+          </p>
+          <p class="en">
+            The organisers shared <strong>testimonies from people who had gone through the diagnosis</strong> or had supported someone who did.
+            While designing the scarf, <strong>I shared them with my mother,</strong> who told me one of the stories was very similar to her own.
+            She is part of a support group for patients with this cancer.
+          </p>
+
+          <blockquote class="cita">
+            <span class="es">Este diseño es un homenaje hacia ella y a su amor por las plantas, pero también a su grupo y todas que enfrentan esta lucha.</span>
+            <span class="en">This design is a tribute to her and her love of plants, but also to her group and everyone facing this fight.</span>
+          </blockquote>
+
+          <p class="es">
+            Las <strong>plantas representan a las distintas personas</strong> que, de una u otra forma, están atravesadas por esta enfermedad:
+            pacientes, personal de salud y personas allegadas. Las <strong>ramas simbolizan la red de contención</strong> que las une y las sostiene.
+          </p>
+          <p class="en">
+            The <strong>plants represent the different people</strong> touched by this illness in one way or another: patients, healthcare workers
+            and loved ones. The <strong>branches symbolise the support network</strong> that connects and holds them together.
+          </p>
+
+          <a class="pill" href="https://tinyurl.com/mvd-shopping" target="_blank" rel="noopener">
+            <span class="es">Ver más</span><span class="en">Read more</span> ↗
+          </a>
+        </div>
+
+        <div class="galeria">
+          <img
+            class="media"
+            src="images/proyectos/panuelo-lazo.jpg"
+            width="1200"
+            height="1350"
+            loading="lazy"
+            alt="Pañuelo rosa con flores, anudado en forma de lazo"
+            data-alt-en="Pink floral scarf tied in the shape of an awareness ribbon"
+          />
+          <img
+            class="media"
+            src="images/proyectos/panuelo-ilustracion.jpg"
+            width="1200"
+            height="1209"
+            loading="lazy"
+            alt="Ilustración del pañuelo: flores de distintas especies unidas por ramas sobre fondo rosa"
+            data-alt-en="Scarf illustration: flowers of different species joined by branches on a pink background"
+          />
+          <img
+            class="media ancho"
+            src="images/proyectos/panuelo-producto.jpg"
+            width="1800"
+            height="760"
+            loading="lazy"
+            alt="Dos pañuelos impresos, uno doblado en triángulo y otro en cuadrado"
+            data-alt-en="Two printed scarves, one folded into a triangle and one into a square"
+          />
+        </div>
+      </article>
+
+      <!-- ========== PROYECTO: Córdoba ========== -->
+      <article class="proyecto" id="cordoba" style="--acento: #c41230">
+        <div class="proyecto__texto">
+          <h2 class="proyecto__titulo">Cordoba FW21-22 × Palomo Spain</h2>
+          <p class="etiquetas">
+            <span class="es">Identidad visual · Diseño editorial</span><span class="en">Visual identity · Editorial design</span>
+          </p>
+
+          <p class="es">
+            Serie de afiches + diseño de catálogo* para la colección “Córdoba” del atelier español Palomo Spain. Córdoba es una colección tributo a
+            la ciudad natal de Alejandro Gómez Palomo (1992), que refleja las raíces de Córdoba, donde confluyen las culturas romana, árabe, judía y
+            cristiana.
+          </p>
+          <p class="en">
+            Poster series + catalogue design* for the “Córdoba” collection by Spanish atelier Palomo Spain. Córdoba is a tribute to the hometown of
+            Alejandro Gómez Palomo (1992), reflecting the city’s roots, where Roman, Arab, Jewish and Christian cultures meet.
+          </p>
+
+          <blockquote class="cita cita--italica">
+            <span class="es">“La importancia de mirar atrás la herencia personal para poder proyectar el futuro.”</span>
+            <span class="en">“The importance of looking back at one’s personal heritage in order to project the future.”</span>
+          </blockquote>
+
+          <p class="es">
+            El diseño de los afiches tiene el enfoque en el sombrero y sus colores. El retrato genera una conjunción de color que busca la atención
+            y caracteriza a la colección.
+          </p>
+          <p class="en">
+            The posters focus on the hat and its colours. The portrait creates a colour combination that draws attention and defines the
+            collection.
+          </p>
+          <p class="es">
+            El catálogo, de formato cuadrado, contiene fotografías de todas las prendas con una descripción en español e inglés. Su tapa y
+            contratapa son de tela, con la textura de uno de los pañuelos de la colección.
+          </p>
+          <p class="en">
+            The square-format catalogue features photos of every garment with descriptions in Spanish and English. Its front and back covers are
+            fabric, printed with the texture of one of the collection’s scarves.
+          </p>
+
+          <p class="nota"><span class="es">*proyecto ficticio</span><span class="en">*fictional project</span></p>
+        </div>
+
+        <div class="galeria">
+          <img
+            class="media ancho"
+            src="images/proyectos/cordoba-historias.jpg"
+            width="1800"
+            height="932"
+            loading="lazy"
+            alt="Tres historias de Instagram con los afiches de la colección Córdoba"
+            data-alt-en="Three Instagram stories featuring the Córdoba collection posters"
+          />
+          <img
+            class="media ancho"
+            src="images/proyectos/cordoba-afiches.jpg"
+            width="1800"
+            height="1336"
+            loading="lazy"
+            alt="Dos afiches: modelo de perfil con sombrero gris y con sombrero azul, y el logotipo Córdoba"
+            data-alt-en="Two posters: a model in profile wearing a grey hat and a blue hat, with the Córdoba logotype"
+          />
+          <img
+            class="media ancho"
+            src="images/proyectos/cordoba-catalogo.jpg"
+            width="1800"
+            height="1241"
+            loading="lazy"
+            alt="Maquetas del catálogo cuadrado con tapa amarilla de tela"
+            data-alt-en="Mock-ups of the square catalogue with a yellow fabric cover"
+          />
+        </div>
+      </article>
+
+      <!-- ========== PROYECTO: Emilia ========== -->
+      <article class="proyecto" id="emilia" style="--acento: #111111">
+        <div class="proyecto__texto">
+          <h2 class="proyecto__titulo">Emilia</h2>
+          <p class="etiquetas"><span class="es">Ilustración</span><span class="en">Illustration</span></p>
+
+          <p class="es">
+            Con el objetivo de crear una ilustración o producto que logre representar a un compañero*, sus intereses y su trabajo, realicé un
+            póster y un icono para Emilia, fotógrafa con interés en el cine y la música.
+          </p>
+          <p class="en">
+            The brief was to create an illustration or product that represents a classmate*, their interests and their work. I made a poster and an
+            icon for Emilia, a photographer interested in film and music.
+          </p>
+          <p class="es">
+            El póster fue realizado con una de las fotografías de su serie <em>“notes on childhood and dead birds” (2021—).</em>
+          </p>
+          <p class="en">The poster uses one of the photographs from her series <em>“notes on childhood and dead birds” (2021—).</em></p>
+
+          <p class="nota"><span class="es">*proyecto universitario</span><span class="en">*university project</span></p>
+        </div>
+
+        <div class="galeria">
+          <figure>
+            <img
+              class="media"
+              src="images/proyectos/emilia-original.jpg"
+              width="550"
+              height="772"
+              loading="lazy"
+              alt="Fotografía original en blanco y negro de un pájaro sobre baldosas"
+              data-alt-en="Original black and white photograph of a bird on paving stones"
+            />
+            <figcaption><span class="es">Fotografía original</span><span class="en">Original photograph</span></figcaption>
+          </figure>
+          <figure>
+            <img
+              class="media"
+              src="images/proyectos/emilia-poster.jpg"
+              width="1000"
+              height="1419"
+              loading="lazy"
+              alt="Póster: la fotografía reflejada en espejo cuatro veces formando un patrón simétrico"
+              data-alt-en="Poster: the photograph mirrored four times to form a symmetrical pattern"
+            />
+            <figcaption><span class="es">Póster</span><span class="en">Poster</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- ========== PROYECTO: Ruda ========== -->
+      <article class="proyecto" id="ruda" style="--acento: #2f6b6e">
+        <div class="proyecto__texto">
+          <h2 class="proyecto__titulo">Ruda Ediciones</h2>
+          <p class="etiquetas">
+            <span class="es">Ilustración · Identidad visual · Diseño editorial</span
+            ><span class="en">Illustration · Visual identity · Editorial design</span>
+          </p>
+
+          <p class="es">
+            Ruda Ediciones es una editorial* uruguaya que apunta a un público de entre 20 y 50 años con la edición de autores uruguayos.
+          </p>
+          <p class="en">Ruda Ediciones is a Uruguayan publisher* of Uruguayan authors, aimed at readers aged 20 to 50.</p>
+          <p class="es">
+            La identidad visual busca remitir a las ilustraciones botánicas y emblemas antiguos; la tipografía surge del estilo Art Nouveau,
+            característico de varios lugares de Montevideo.
+          </p>
+          <p class="en">
+            The visual identity draws on botanical illustrations and old emblems; the lettering comes from the Art Nouveau style found across
+            Montevideo.
+          </p>
+          <p class="es">
+            El diseño de la colección de libros es el resultado de la conjunción de lo antiguo (el papel marmolado y la tipografía) y lo actual
+            (la libertad de estructuras en la tapa, las ilustraciones y la paleta cromática).
+          </p>
+          <p class="en">
+            The book collection combines the old (marbled paper and lettering) with the new (free-form cover structures, illustrations and colour
+            palette).
+          </p>
+
+          <p class="nota">
+            <span class="es">*proyecto ficticio y colaborativo con Emilia Rovira</span
+            ><span class="en">*fictional project, in collaboration with Emilia Rovira</span>
+          </p>
+        </div>
+
+        <div class="galeria">
+          <img
+            class="media ancho"
+            src="images/proyectos/ruda-logos.jpg"
+            width="1600"
+            height="1260"
+            loading="lazy"
+            alt="Cuatro versiones del logotipo Ruda Ediciones, con y sin ilustraciones botánicas"
+            data-alt-en="Four versions of the Ruda Ediciones logo, with and without botanical illustrations"
+          />
+          <img
+            class="media ancho"
+            src="images/proyectos/ruda-libros.jpg"
+            width="1800"
+            height="1175"
+            loading="lazy"
+            alt="Colección de tres libros con títulos tipográficos de colores en estilo Art Nouveau"
+            data-alt-en="Collection of three books with colourful Art Nouveau lettering on the covers"
+          />
+          <img
+            class="media ancho"
+            src="images/proyectos/ruda-interiores.jpg"
+            width="1800"
+            height="914"
+            loading="lazy"
+            alt="Interiores del libro El origen de las palabras con solapas verde y naranja"
+            data-alt-en="Interior pages of the book El origen de las palabras with green and orange flaps"
+          />
+        </div>
+      </article>
+
+      <!-- ========== PROYECTO: UCU ========== -->
+      <article class="proyecto" id="ucu" style="--acento: #1c8a87">
+        <div class="proyecto__texto">
+          <h2 class="proyecto__titulo"><span class="es">Diseño gráfico × Universidad Católica del Uruguay</span><span class="en">Graphic design × Universidad Católica del Uruguay</span></h2>
+          <p class="etiquetas">
+            <span class="es">Comunicación institucional · Vía pública · Redes sociales · Editorial</span
+            ><span class="en">Institutional communication · Outdoor · Social media · Editorial</span>
+          </p>
+
+          <p class="es">
+            Como diseñadora gráfica en UCU, colaboro en todo el proceso de creación de piezas visuales para cursos y programas de postgrado de la
+            universidad.
+          </p>
+          <p class="en">
+            As a graphic designer at UCU, I take part in the whole process of creating visual pieces for the university’s courses and postgraduate
+            programmes.
+          </p>
+          <p class="es">
+            Mi trabajo abarca desde la conceptualización hasta la adaptación de <strong>más de 100 piezas gráficas por campaña</strong>,
+            manteniendo la coherencia visual de las marcas institucionales en varios formatos: materiales digitales, impresos y cartelería pública.
+          </p>
+          <p class="en">
+            My work ranges from concept to adapting <strong>more than 100 pieces per campaign</strong>, keeping the institutional brands consistent
+            across digital, print and outdoor formats.
+          </p>
+        </div>
+
+        <div class="galeria">
+          <figure class="ancho">
+            <img
+              class="media"
+              src="images/proyectos/ucu-piezas.jpg"
+              width="1800"
+              height="1364"
+              loading="lazy"
+              alt="Cinco piezas para UCU: aviso Cinemateca, folletos de maestrías, aviso MBA, campaña de postgrados y campaña Grow To Lead"
+              data-alt-en="Five pieces for UCU: Cinemateca ad, master's brochures, MBA ad, postgraduate campaign and Grow To Lead campaign"
+            />
+          </figure>
+        </div>
+      </article>
+
+      <!-- ========== SOBRE MÍ ========== -->
+      <section class="seccion" id="sobremi">
+        <h2><span class="es">Sobre mí</span><span class="en">About me</span></h2>
+
+        <div class="cv">
+          <div>
+            <h3 class="cv__titulo"><span class="es">Experiencia</span><span class="en">Experience</span></h3>
+
+            <div class="tarjeta">
+              <div class="tarjeta__top">
+                <span class="punto punto--activo"></span>
+                <span class="fecha fecha--actual">2023 – <span class="es">Act.</span><span class="en">Present</span></span>
+              </div>
+              <div class="tarjeta__cabeza">
+                <img class="logo" src="images/logos/ucu.png" width="144" height="144" alt="" />
+                <div>
+                  <h4><span class="es">Diseñadora Gráfica</span><span class="en">Graphic Designer</span></h4>
+                  <p>Universidad Católica del Uruguay</p>
+                </div>
+              </div>
+              <ul class="flechas">
+                <li class="es">Diseño y adaptación de +100 piezas gráficas para cursos y programas de postgrado por campaña.</li>
+                <li class="en">Design and adaptation of 100+ pieces per campaign for courses and postgraduate programmes.</li>
+                <li class="es">Creación de contenido para redes sociales, medios impresos y cartelería pública.</li>
+                <li class="en">Content for social media, print and outdoor signage.</li>
+              </ul>
+            </div>
+
+            <div class="tarjeta">
+              <div class="tarjeta__top">
+                <span class="punto"></span>
+                <span class="fecha">2024</span>
+              </div>
+              <div class="tarjeta__cabeza">
+                <img class="logo" src="images/logos/bienal.png" width="144" height="144" alt="" />
+                <div>
+                  <h4><span class="es">Diseñadora Digital</span><span class="en">Digital Designer</span></h4>
+                  <p><span class="es">Bienal de Venecia (envío Uruguay)</span><span class="en">Venice Biennale (Uruguay pavilion)</span></p>
+                </div>
+              </div>
+              <ul class="flechas">
+                <li class="es">Diseño de publicaciones e historias para Instagram del pabellón uruguayo.</li>
+                <li class="en">Instagram posts and stories for the Uruguayan pavilion.</li>
+                <li class="es">Registro fotográfico y edición de videos del catálogo de la exposición.</li>
+                <li class="en">Photography and video editing for the exhibition catalogue.</li>
+              </ul>
+            </div>
+
+            <div class="tarjeta">
+              <div class="tarjeta__top">
+                <span class="punto"></span>
+                <span class="fecha">2023</span>
+              </div>
+              <div class="tarjeta__cabeza">
+                <img class="logo" src="images/logos/globant.png" width="144" height="144" alt="" />
+                <div>
+                  <h4>Comms &amp; Visual Trainee</h4>
+                  <p>Globant</p>
+                </div>
+              </div>
+              <ul class="flechas">
+                <li class="es">Desarrollo de contenido gráfico y audiovisual para plataforma interna.</li>
+                <li class="en">Graphic and audiovisual content for an internal platform.</li>
+                <li class="es">Trabajo con Tech Partners en un entorno ágil y colaborativo.</li>
+                <li class="en">Worked with Tech Partners in an agile, collaborative environment.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="cv__titulo"><span class="es">Educación</span><span class="en">Education</span></h3>
+
+            <div class="tarjeta">
+              <div class="tarjeta__top">
+                <span class="check" aria-hidden="true">✓</span>
+                <span class="fecha fecha--completa">2020 – 2023</span>
+              </div>
+              <div class="tarjeta__cabeza">
+                <img class="logo" src="images/logos/ucu.png" width="144" height="144" alt="" />
+                <div>
+                  <h4><span class="es">Licenciatura en Artes Visuales</span><span class="en">BA in Visual Arts</span></h4>
+                  <p>Universidad Católica del Uruguay</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tarjeta">
+              <div class="tarjeta__top">
+                <span class="punto"></span>
+                <span>
+                  <span class="fecha"><span class="es">3/7 cursos</span><span class="en">3/7 courses</span></span>
+                  <span class="fecha">2025</span>
+                </span>
+              </div>
+              <div class="tarjeta__cabeza">
+                <img class="logo" src="images/logos/google.png" width="144" height="144" alt="" />
+                <div>
+                  <h4><span class="es">Especialización en UX Design</span><span class="en">UX Design Certificate</span></h4>
+                  <p>Coursera – Google</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tarjeta">
+              <div class="tarjeta__top">
+                <span class="punto"></span>
+                <span class="fecha">2023 – 2024</span>
+              </div>
+              <div class="tarjeta__cabeza">
+                <img class="logo" src="images/logos/jap.png" width="144" height="144" alt="" />
+                <div>
+                  <h4><span class="es">Desarrollo Web</span><span class="en">Web Development</span></h4>
+                  <p>Jóvenes a Programar – Ceibal</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="cv__titulo"><span class="es">Habilidades</span><span class="en">Skills</span></h3>
+            <div class="habilidades">
+              <div class="tarjeta tarjeta--chica">
+                <h4><span class="es">Diseño gráfico</span><span class="en">Graphic design</span></h4>
+                <p>Illustrator · InDesign · Photoshop · Figma · Canva</p>
+              </div>
+              <div class="tarjeta tarjeta--chica">
+                <h4><span class="es">Edición de video</span><span class="en">Video editing</span></h4>
+                <p>Premiere Pro · After Effects</p>
+              </div>
+              <div class="tarjeta tarjeta--chica">
+                <h4><span class="es">Desarrollo web</span><span class="en">Web development</span></h4>
+                <p>HTML · CSS · JavaScript · Webflow</p>
+              </div>
+              <div class="tarjeta tarjeta--chica">
+                <h4><span class="es">Idiomas</span><span class="en">Languages</span></h4>
+                <p><span class="es">Español · Inglés</span><span class="en">Spanish · English</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="cv__titulo"><span class="es">Logros</span><span class="en">Achievements</span></h3>
+        <div class="logros">
+          <div class="tarjeta">
+            <div class="tarjeta__top">
+              <span class="estrella" aria-hidden="true">★</span>
+              <span class="fecha">2023</span>
+            </div>
+            <h4><span class="es">Asistente de diseño</span><span class="en">Design assistant</span></h4>
+            <p>Gurvich Inclusivo – Museo Gurvich</p>
+            <a class="pill pill--chica" href="https://tinyurl.com/gurvich-incl" target="_blank" rel="noopener">
+              <span class="es">Ver más</span><span class="en">Read more</span> ↗
+            </a>
+          </div>
+          <div class="tarjeta">
+            <div class="tarjeta__top">
+              <span class="estrella" aria-hidden="true">★</span>
+              <span class="fecha">2022</span>
+            </div>
+            <h4><span class="es">Asistente de investigación</span><span class="en">Research assistant</span></h4>
+            <p>
+              <span class="es">La construcción de recorridos inclusivos con sentido en el espacio expositivo.</span
+              ><span class="en">Building meaningful inclusive routes in exhibition spaces.</span>
+            </p>
+            <a class="pill pill--chica" href="https://doi.org/10.18682/cdc.vi177" target="_blank" rel="noopener">
+              <span class="es">Ver más</span><span class="en">Read more</span> ↗
+            </a>
+          </div>
+          <div class="tarjeta">
+            <div class="tarjeta__top">
+              <span class="estrella" aria-hidden="true">★</span>
+              <span class="fecha">2022</span>
+            </div>
+            <h4><span class="es">Diseño de pañuelo</span><span class="en">Scarf design</span></h4>
+            <p>
+              <span class="es">10° Ed. Campaña de Lucha contra el Cáncer de Mama – Montevideo Shopping</span
+              ><span class="en">10th Breast Cancer Awareness Campaign – Montevideo Shopping</span>
+            </p>
+            <a class="pill pill--chica" href="https://tinyurl.com/mvd-shopping" target="_blank" rel="noopener">
+              <span class="es">Ver más</span><span class="en">Read more</span> ↗
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== CONTACTO ========== -->
+    <footer class="contacto" id="contacto">
+      <div class="contacto__fila">
+        <div>
+          <p class="contacto__nombre">Florencia Sequeira</p>
+          <p class="contacto__texto">
+            <span class="es">¿Tenés un proyecto en mente? Escribime.</span><span class="en">Have a project in mind? Get in touch.</span>
+          </p>
+        </div>
+        <div class="botones">
+          <a class="pill" href="docs/Florencia-Sequeira-CV-ES.pdf" target="_blank" rel="noopener">
+            <span class="es">CV completo</span><span class="en">Full CV (Spanish)</span> ↗
+          </a>
+          <a class="pill" href="https://www.linkedin.com/in/floseq/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="pill" href="mailto:florenciasequeira@gmail.com">Mail ↗</a>
+        </div>
       </div>
-    </div>
-
-    <div class="container">
-      <section id="proyectos">
-        <h2>Proyectos</h2>
-        <div class="proyectos">
-          <div class="cardProyecto">
-            <img src="images/Book_Mockup_1.jpg" alt="libros" />
-            <h3>Ruda Ediciones</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-          <div class="cardProyecto">
-            <img src="images/Book_Mockup_1.jpg" alt="libros" />
-            <h3>Ruda Ediciones</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="sobremi">
-        <h2>Sobre mí</h2>
-        <div class="descripcion">
-          <div class="imagen-perfil">
-            <img src="images/FlorenciaSequeira2bw2.jpg" alt="foto de perfil" />
-          </div>
-          <p>
-            Mi nombre es Florencia Sequeira y soy una apasionada diseñadora visual. Me especializo en crear experiencias visuales que combinan arte y
-            accesibilidad. Con mis trabajos en diseño gráfico y desarrollo web, me encanta dar vida a las ideas a través de colores, formas y código.
-          </p>
-          <p>
-            Siempre estoy buscando aprender nuevas tecnologías y mejorar mis habilidades para ofrecer los mejores resultados a mis clientes. Mi objetivo es
-            diseñar productos que no solo sean estéticamente atractivos, sino también funcionales y accesibles para todos los usuarios.
-          </p>
-        </div>
-      </section>
-
-      <section id="contacto">
-        <h2>Contacto</h2>
-        <div class="formulario">
-          <p>
-            ¡Me encantaría saber de ti! Si tienes alguna pregunta, consulta o simplemente quieres decir hola, no dudes en ponerte en contacto utilizando el
-            siguiente formulario. Estoy ansiosa por colaborar contigo en futuros proyectos.
-          </p>
-          <form action="" method="get">
-            <!-- <label for="remitente">De:</label> -->
-            <input title="Nombre" type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" required />
-            <input title="Correo electrónico" type="email" name="correo" id="correo" placeholder="Escribe tu correo electrónico" required />
-            <br />
-            <!-- <label for="tema">Temática:</label> -->
-            <select title="Temática" id="tema" name="tema" required>
-              <option value="" hidden selected disabled>-- Elige una tématica --</option>
-              <option value="1">Consulta</option>
-              <option value="2">Propuesta</option>
-              <option value="3">Reporte</option>
-              <option value="4">Otro</option>
-            </select>
-            <br />
-            <!-- <label for="asunto">Asunto:</label> -->
-            <input title="Asunto" type="text" name="asunto" id="asunto" placeholder="Escribe el asunto" required />
-            <br />
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
-            <input type="submit" value="Enviar" id="button" />
-          </form>
-        </div>
-      </section>
-    </div>
-
-    <footer>
-      <img src="images/isologo-blanco.png" alt="logo" />
-      &copy; Florencia Sequeira | Todos los derechos reservados
+      <p class="contacto__legal">
+        &copy; <span id="anio">2026</span> Florencia Sequeira ·
+        <span class="es">Todos los derechos reservados</span><span class="en">All rights reserved</span>
+      </p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
