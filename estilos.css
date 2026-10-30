@@ -567,6 +567,51 @@ a {
 }
 
 /* =========================================================
+   Botón "volver arriba"
+   ========================================================= */
+.arriba {
+  position: fixed;
+  right: var(--margen);
+  bottom: 24px;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1.5px solid var(--blanco); /* para que se vea sobre el pie negro */
+  border-radius: 50%;
+  background: var(--negro);
+  color: var(--blanco);
+  font-size: 1.4rem;
+  text-decoration: none;
+  /* oculto hasta que script.js le agregue la clase "visible" */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+}
+.arriba.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.arriba:hover {
+  background: var(--blanco);
+  color: var(--negro);
+  border-color: var(--negro);
+}
+
+/* Texto que solo leen los lectores de pantalla */
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* =========================================================
    Responsive: tablets y celulares
    ========================================================= */
 @media (max-width: 900px) {

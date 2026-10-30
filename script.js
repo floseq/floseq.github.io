@@ -45,5 +45,17 @@ botonIdioma.addEventListener("click", () => {
 
 aplicarIdioma(idiomaInicial());
 
+// =========================================================
+// Botón "volver arriba": aparece después de bajar un poco
+// =========================================================
+const botonArriba = document.querySelector(".arriba");
+
+function mostrarBotonArriba() {
+  botonArriba.classList.toggle("visible", window.scrollY > 600);
+}
+
+window.addEventListener("scroll", mostrarBotonArriba, { passive: true });
+mostrarBotonArriba();
+
 // Año actual en el pie de página
 document.querySelector("#anio").textContent = new Date().getFullYear();
