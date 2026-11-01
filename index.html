@@ -8,6 +8,29 @@
       name="description"
       content="Portfolio de Florencia Sequeira, diseñadora gráfica: identidad visual, diseño editorial, ilustración y comunicación institucional."
     />
+
+    <!-- Vista previa al compartir el enlace (LinkedIn, WhatsApp, mail…) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://floseq.github.io/" />
+    <meta property="og:title" content="Florencia Sequeira · Diseño gráfico" />
+    <meta
+      property="og:description"
+      content="Diseñadora gráfica · Graphic designer. Identidad visual, diseño editorial, ilustración y comunicación institucional."
+    />
+    <meta property="og:image" content="https://floseq.github.io/images/og-imagen.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Florencia Sequeira, diseñadora gráfica" />
+    <meta property="og:locale" content="es_UY" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Ícono de la pestaña del navegador -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="images/icono-192.png" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <meta name="theme-color" content="#ffffff" />
+
     <link rel="preload" href="fonts/uncut-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/uncut-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="estilos.css" />
@@ -23,12 +46,18 @@
     <header class="cabecera">
       <a class="marca" href="#inicio">Florencia Sequeira</a>
       <nav class="menu">
-        <a href="#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
-        <a href="#sobremi"><span class="es">Sobre mí</span><span class="en">About</span></a>
-        <a href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
+        <!-- En celular estos enlaces se esconden y se abren con el botón "Menú" -->
+        <div class="menu__enlaces" id="menu-enlaces">
+          <a href="#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+          <a href="#sobremi"><span class="es">Sobre mí</span><span class="en">About</span></a>
+          <a href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
+        </div>
         <button class="pill pill--chica" id="cambiar-idioma" type="button" aria-label="View in English">
           <span class="es">EN</span>
           <span class="en">ES</span>
+        </button>
+        <button class="pill pill--chica menu__boton" id="abrir-menu" type="button" aria-expanded="false" aria-controls="menu-enlaces">
+          <span class="es">Menú</span><span class="en">Menu</span>
         </button>
       </nav>
     </header>
@@ -39,7 +68,9 @@
         <div class="hero__perfil">
           <img
             class="hero__foto"
-            src="images/proyectos/perfil.jpg"
+            src="images/proyectos/perfil.webp"
+            srcset="images/proyectos/perfil-800.webp 800w, images/proyectos/perfil.webp 1000w"
+            sizes="(max-width: 900px) 100vw, 580px"
             width="1000"
             height="485"
             alt="Retrato de Florencia Sequeira sonriendo"
@@ -81,48 +112,323 @@
         <h2><span class="es">Proyectos</span><span class="en">Projects</span></h2>
 
         <div class="indice">
+          <a class="indice__item" href="#ucu">
+            <img
+              src="images/proyectos/ucu-cinemateca.webp"
+              srcset="images/proyectos/ucu-cinemateca-800.webp 800w, images/proyectos/ucu-cinemateca.webp 842w"
+              sizes="(max-width: 600px) 100vw, 400px"
+              width="842"
+              height="624"
+              alt=""
+              loading="lazy"
+            />
+            <h3>
+              <span class="es">Diseño gráfico × Universidad Católica del Uruguay</span
+              ><span class="en">Graphic design × Universidad Católica del Uruguay</span>
+            </h3>
+            <p>
+              <span class="es">Comunicación institucional · Vía pública · Redes sociales</span
+              ><span class="en">Institutional communication · Outdoor · Social media</span>
+            </p>
+          </a>
+          <a class="indice__item" href="#bienal">
+            <!-- PENDIENTE: cambiar por una imagen real del proyecto -->
+            <div class="indice__placeholder">
+              <img src="images/logos/bienal.png" width="144" height="144" alt="" />
+            </div>
+            <h3><span class="es">Bienal de Venecia × Pabellón de Uruguay</span><span class="en">Venice Biennale × Uruguay Pavilion</span></h3>
+            <p><span class="es">Redes sociales · Fotografía · Video</span><span class="en">Social media · Photography · Video</span></p>
+          </a>
           <a class="indice__item" href="#panuelo">
-            <img src="images/proyectos/panuelo-lazo.jpg" width="1200" height="1350" alt="" loading="lazy" />
+            <img
+              src="images/proyectos/panuelo-lazo.webp"
+              srcset="images/proyectos/panuelo-lazo-800.webp 800w, images/proyectos/panuelo-lazo.webp 1200w"
+              sizes="(max-width: 600px) 100vw, 400px"
+              width="1200"
+              height="1350"
+              alt=""
+              loading="lazy"
+            />
             <h3><span class="es">Pañuelo × Lucha contra el Cáncer de Mama</span><span class="en">Scarf × Breast Cancer Awareness</span></h3>
             <p><span class="es">Ilustración</span><span class="en">Illustration</span></p>
           </a>
-          <a class="indice__item" href="#cordoba">
-            <img src="images/proyectos/cordoba-afiche.jpg" width="1000" height="1589" alt="" loading="lazy" />
-            <h3>Cordoba FW21-22 × Palomo Spain</h3>
-            <p>
-              <span class="es">Identidad visual · Diseño editorial</span><span class="en">Visual identity · Editorial design</span>
-            </p>
-          </a>
-          <a class="indice__item" href="#emilia">
-            <img src="images/proyectos/emilia-poster.jpg" width="1000" height="1419" alt="" loading="lazy" />
-            <h3>Emilia</h3>
-            <p><span class="es">Ilustración</span><span class="en">Illustration</span></p>
-          </a>
           <a class="indice__item" href="#ruda">
-            <img src="images/proyectos/ruda-libros.jpg" width="1800" height="1175" alt="" loading="lazy" />
+            <img
+              src="images/proyectos/ruda-libros.webp"
+              srcset="images/proyectos/ruda-libros-800.webp 800w, images/proyectos/ruda-libros.webp 1600w"
+              sizes="(max-width: 600px) 100vw, 400px"
+              width="1600"
+              height="1044"
+              alt=""
+              loading="lazy"
+            />
             <h3>Ruda Ediciones</h3>
             <p>
               <span class="es">Ilustración · Identidad visual · Diseño editorial</span
               ><span class="en">Illustration · Visual identity · Editorial design</span>
             </p>
           </a>
-          <a class="indice__item" href="#ucu">
-            <img src="images/proyectos/ucu-piezas.jpg" width="1800" height="1364" alt="" loading="lazy" />
-            <h3><span class="es">Diseño gráfico × Universidad Católica del Uruguay</span><span class="en">Graphic design × Universidad Católica del Uruguay</span></h3>
+          <a class="indice__item" href="#cordoba">
+            <img
+              src="images/proyectos/cordoba-afiche.webp"
+              srcset="images/proyectos/cordoba-afiche-800.webp 800w, images/proyectos/cordoba-afiche.webp 1000w"
+              sizes="(max-width: 600px) 100vw, 400px"
+              width="1000"
+              height="1589"
+              alt=""
+              loading="lazy"
+            />
+            <h3>Cordoba FW21-22 × Palomo Spain</h3>
             <p>
-              <span class="es">Comunicación institucional · Vía pública · Redes sociales</span
-              ><span class="en">Institutional communication · Outdoor · Social media</span>
+              <span class="es">Identidad visual · Diseño editorial</span><span class="en">Visual identity · Editorial design</span>
             </p>
+          </a>
+          <a class="indice__item" href="#emilia">
+            <img
+              src="images/proyectos/emilia-poster.webp"
+              srcset="images/proyectos/emilia-poster-800.webp 800w, images/proyectos/emilia-poster.webp 1000w"
+              sizes="(max-width: 600px) 100vw, 400px"
+              width="1000"
+              height="1419"
+              alt=""
+              loading="lazy"
+            />
+            <h3>Emilia</h3>
+            <p><span class="es">Ilustración</span><span class="en">Illustration</span></p>
           </a>
         </div>
       </section>
 
+      <!-- Cada proyecto tiene:
+           1. --acento: el color del proyecto (lo usa estilos.css)
+           2. .ficha: cliente, año, rol y resultado
+           3. .galeria: las imágenes. Por defecto ocupan media fila;
+              class="ancho" ocupa la fila entera y class="tercio" un tercio.
+           4. .proyecto__nav: enlaces al siguiente proyecto -->
+
+      <!-- ========== PROYECTO: UCU ========== -->
+      <article class="proyecto" id="ucu" style="--acento: #1c8a87">
+        <div class="proyecto__texto">
+          <h2 class="proyecto__titulo">
+            <span class="es">Diseño gráfico × Universidad Católica del Uruguay</span
+            ><span class="en">Graphic design × Universidad Católica del Uruguay</span>
+          </h2>
+          <p class="etiquetas">
+            <span class="es">Comunicación institucional · Vía pública · Redes sociales · Editorial</span
+            ><span class="en">Institutional communication · Outdoor · Social media · Editorial</span>
+          </p>
+
+          <dl class="ficha">
+            <div>
+              <dt><span class="es">Cliente</span><span class="en">Client</span></dt>
+              <dd>
+                <span class="es">UCU – Escuela de Postgrados y Business School</span
+                ><span class="en">UCU – Graduate School and Business School</span>
+              </dd>
+            </div>
+            <div>
+              <dt><span class="es">Año</span><span class="en">Year</span></dt>
+              <dd>2023 – <span class="es">Actualidad</span><span class="en">Present</span></dd>
+            </div>
+            <div>
+              <dt><span class="es">Rol</span><span class="en">Role</span></dt>
+              <dd><span class="es">Diseñadora gráfica</span><span class="en">Graphic designer</span></dd>
+            </div>
+            <div>
+              <dt><span class="es">Resultado</span><span class="en">Result</span></dt>
+              <dd><span class="es">+100 piezas por campaña</span><span class="en">100+ pieces per campaign</span></dd>
+            </div>
+          </dl>
+
+          <p class="es">
+            Como diseñadora gráfica en UCU, colaboro en todo el proceso de creación de piezas visuales para cursos y programas de postgrado de la
+            universidad.
+          </p>
+          <p class="en">
+            As a graphic designer at UCU, I take part in the whole process of creating visual pieces for the university’s courses and postgraduate
+            programmes.
+          </p>
+          <p class="es">
+            Mi trabajo abarca desde la conceptualización hasta la adaptación de <strong>más de 100 piezas gráficas por campaña</strong>,
+            manteniendo la coherencia visual de las marcas institucionales en varios formatos: materiales digitales, impresos y cartelería pública.
+          </p>
+          <p class="en">
+            My work ranges from concept to adapting <strong>more than 100 pieces per campaign</strong>, keeping the institutional brands consistent
+            across digital, print and outdoor formats.
+          </p>
+        </div>
+
+        <div class="galeria">
+          <figure>
+            <img
+              class="media"
+              src="images/proyectos/ucu-cinemateca.webp"
+              srcset="images/proyectos/ucu-cinemateca-800.webp 800w, images/proyectos/ucu-cinemateca.webp 842w"
+              sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 360px"
+              width="842"
+              height="624"
+              loading="lazy"
+              alt="Aviso “Un mundo de oportunidades” de la Escuela de Postgrados, en turquesa con fotos y formas de colores"
+              data-alt-en="“A world of opportunities” ad for the Graduate School, in turquoise with photos and colourful shapes"
+            />
+            <figcaption>
+              <span class="es">Aviso Cinemateca · Escuela de Postgrados</span><span class="en">Cinemateca ad · Graduate School</span>
+            </figcaption>
+          </figure>
+          <figure>
+            <img
+              class="media"
+              src="images/proyectos/ucu-folletos.webp"
+              width="632"
+              height="630"
+              loading="lazy"
+              alt="Tapa del folleto de la Maestría en Cuidados Paliativos, en verde azulado"
+              data-alt-en="Cover of the Master’s in Palliative Care brochure, in teal"
+            />
+            <figcaption>
+              <span class="es">Folletos de maestrías · Escuela de Postgrados</span><span class="en">Master’s brochures · Graduate School</span>
+            </figcaption>
+          </figure>
+          <figure class="tercio">
+            <img
+              class="media"
+              src="images/proyectos/ucu-mba.webp"
+              width="644"
+              height="800"
+              loading="lazy"
+              alt="Aviso “Sumate al MBA” de UCU Business School con fotos del campus"
+              data-alt-en="“Join the MBA” ad for UCU Business School with campus photos"
+            />
+            <figcaption><span class="es">Aviso Galería · Business School</span><span class="en">Gallery ad · Business School</span></figcaption>
+          </figure>
+          <figure class="tercio">
+            <img
+              class="media"
+              src="images/proyectos/ucu-psicoterapia.webp"
+              width="644"
+              height="800"
+              loading="lazy"
+              alt="Pieza de la Maestría en Psicoterapia Cognitiva con fotos de una familia y manos entrelazadas"
+              data-alt-en="Piece for the Master’s in Cognitive Psychotherapy with photos of a family and joined hands"
+            />
+            <figcaption>
+              <span class="es">Campaña OCT/2025 · Escuela de Postgrados</span><span class="en">October 2025 campaign · Graduate School</span>
+            </figcaption>
+          </figure>
+          <figure class="tercio">
+            <img
+              class="media"
+              src="images/proyectos/ucu-grow-to-lead.webp"
+              width="644"
+              height="800"
+              loading="lazy"
+              alt="Pieza “Grow To Lead” con el retrato y la cita de una egresada"
+              data-alt-en="“Grow To Lead” piece with a graduate’s portrait and quote"
+            />
+            <figcaption>
+              <span class="es">Campaña Grow To Lead · Business School</span><span class="en">Grow To Lead campaign · Business School</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <nav class="proyecto__nav">
+          <a href="#proyectos">↑ <span class="es">Todos los proyectos</span><span class="en">All projects</span></a>
+          <a class="pill" href="#bienal"><span class="es">Siguiente: Bienal de Venecia</span><span class="en">Next: Venice Biennale</span> →</a>
+        </nav>
+      </article>
+
+      <!-- ========== PROYECTO: Bienal de Venecia (PENDIENTE: textos e imágenes) ========== -->
+      <article class="proyecto" id="bienal" style="--acento: #111111">
+        <div class="proyecto__texto">
+          <h2 class="proyecto__titulo">
+            <span class="es">Bienal de Venecia × Pabellón de Uruguay</span><span class="en">Venice Biennale × Uruguay Pavilion</span>
+          </h2>
+          <p class="etiquetas"><span class="es">Redes sociales · Fotografía · Video</span><span class="en">Social media · Photography · Video</span></p>
+
+          <dl class="ficha">
+            <div>
+              <dt><span class="es">Cliente</span><span class="en">Client</span></dt>
+              <dd>
+                <span class="es">Envío de Uruguay a la 60ª Bienal de Venecia</span
+                ><span class="en">Uruguay’s participation in the 60th Venice Biennale</span>
+              </dd>
+            </div>
+            <div>
+              <dt><span class="es">Año</span><span class="en">Year</span></dt>
+              <dd>2024</dd>
+            </div>
+            <div>
+              <dt><span class="es">Rol</span><span class="en">Role</span></dt>
+              <dd><span class="es">Diseñadora digital</span><span class="en">Digital designer</span></dd>
+            </div>
+            <div>
+              <dt><span class="es">Resultado</span><span class="en">Result</span></dt>
+              <dd class="pendiente"><span class="es">Pendiente</span><span class="en">To do</span></dd>
+            </div>
+          </dl>
+
+          <p class="es">
+            Diseñé las publicaciones e historias para el Instagram del pabellón uruguayo, y realicé el registro fotográfico y la edición de videos
+            del catálogo de la exposición.
+          </p>
+          <p class="en">
+            I designed the posts and stories for the Uruguayan Pavilion’s Instagram, and handled the photographic documentation and video editing
+            for the exhibition catalogue.
+          </p>
+          <p class="pendiente">
+            <span class="es">Texto pendiente: concepto de la exposición, desafío de comunicación y tu proceso.</span
+            ><span class="en">Text to do: exhibition concept, communication challenge and your process.</span>
+          </p>
+        </div>
+
+        <div class="galeria">
+          <div class="placeholder ancho" style="aspect-ratio: 16 / 9">
+            <span class="es">Imagen pendiente: publicaciones de Instagram</span><span class="en">Image to do: Instagram posts</span>
+          </div>
+          <div class="placeholder" style="aspect-ratio: 4 / 5">
+            <span class="es">Imagen pendiente: historia</span><span class="en">Image to do: story</span>
+          </div>
+          <div class="placeholder" style="aspect-ratio: 4 / 5">
+            <span class="es">Imagen pendiente: historia</span><span class="en">Image to do: story</span>
+          </div>
+          <div class="placeholder ancho" style="aspect-ratio: 16 / 9">
+            <span class="es">Imagen pendiente: fotografías o video del catálogo</span
+            ><span class="en">Image to do: catalogue photos or video</span>
+          </div>
+        </div>
+
+        <nav class="proyecto__nav">
+          <a href="#proyectos">↑ <span class="es">Todos los proyectos</span><span class="en">All projects</span></a>
+          <a class="pill" href="#panuelo"><span class="es">Siguiente: Pañuelo</span><span class="en">Next: Scarf</span> →</a>
+        </nav>
+      </article>
+
       <!-- ========== PROYECTO: Pañuelo ========== -->
-      <!-- --acento es el color de cada proyecto (lo usa estilos.css) -->
       <article class="proyecto" id="panuelo" style="--acento: #cf6487">
         <div class="proyecto__texto">
-          <h2 class="proyecto__titulo"><span class="es">Pañuelo × Lucha contra el Cáncer de Mama</span><span class="en">Scarf × Breast Cancer Awareness</span></h2>
+          <h2 class="proyecto__titulo">
+            <span class="es">Pañuelo × Lucha contra el Cáncer de Mama</span><span class="en">Scarf × Breast Cancer Awareness</span>
+          </h2>
           <p class="etiquetas"><span class="es">Ilustración</span><span class="en">Illustration</span></p>
+
+          <dl class="ficha">
+            <div>
+              <dt><span class="es">Cliente</span><span class="en">Client</span></dt>
+              <dd>Montevideo Shopping</dd>
+            </div>
+            <div>
+              <dt><span class="es">Año</span><span class="en">Year</span></dt>
+              <dd>2022</dd>
+            </div>
+            <div>
+              <dt><span class="es">Rol</span><span class="en">Role</span></dt>
+              <dd><span class="es">Ilustración y diseño de estampa</span><span class="en">Illustration and print design</span></dd>
+            </div>
+            <div>
+              <dt><span class="es">Resultado</span><span class="en">Result</span></dt>
+              <dd><span class="es">5.000 pañuelos producidos</span><span class="en">5,000 scarves produced</span></dd>
+            </div>
+          </dl>
 
           <p class="es">
             En la campaña 2022 de la Lucha contra el Cáncer de Mama, Montevideo Shopping produjo 5.000 pañuelos para comercializar a beneficio de
@@ -165,7 +471,9 @@
         <div class="galeria">
           <img
             class="media"
-            src="images/proyectos/panuelo-lazo.jpg"
+            src="images/proyectos/panuelo-lazo.webp"
+            srcset="images/proyectos/panuelo-lazo-800.webp 800w, images/proyectos/panuelo-lazo.webp 1200w"
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 360px"
             width="1200"
             height="1350"
             loading="lazy"
@@ -174,7 +482,9 @@
           />
           <img
             class="media"
-            src="images/proyectos/panuelo-ilustracion.jpg"
+            src="images/proyectos/panuelo-ilustracion.webp"
+            srcset="images/proyectos/panuelo-ilustracion-800.webp 800w, images/proyectos/panuelo-ilustracion.webp 1200w"
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 360px"
             width="1200"
             height="1209"
             loading="lazy"
@@ -183,14 +493,112 @@
           />
           <img
             class="media ancho"
-            src="images/proyectos/panuelo-producto.jpg"
-            width="1800"
-            height="760"
+            src="images/proyectos/panuelo-producto.webp"
+            srcset="images/proyectos/panuelo-producto-800.webp 800w, images/proyectos/panuelo-producto.webp 1600w"
+            sizes="(max-width: 900px) 100vw, 720px"
+            width="1600"
+            height="676"
             loading="lazy"
             alt="Dos pañuelos impresos, uno doblado en triángulo y otro en cuadrado"
             data-alt-en="Two printed scarves, one folded into a triangle and one into a square"
           />
         </div>
+
+        <nav class="proyecto__nav">
+          <a href="#proyectos">↑ <span class="es">Todos los proyectos</span><span class="en">All projects</span></a>
+          <a class="pill" href="#ruda"><span class="es">Siguiente: Ruda Ediciones</span><span class="en">Next: Ruda Ediciones</span> →</a>
+        </nav>
+      </article>
+
+      <!-- ========== PROYECTO: Ruda ========== -->
+      <article class="proyecto" id="ruda" style="--acento: #2f6b6e">
+        <div class="proyecto__texto">
+          <h2 class="proyecto__titulo">Ruda Ediciones</h2>
+          <p class="etiquetas">
+            <span class="es">Ilustración · Identidad visual · Diseño editorial</span
+            ><span class="en">Illustration · Visual identity · Editorial design</span>
+          </p>
+
+          <dl class="ficha">
+            <div>
+              <dt><span class="es">Cliente</span><span class="en">Client</span></dt>
+              <dd>
+                <span class="es">Proyecto ficticio, con Emilia Rovira</span><span class="en">Fictional project, with Emilia Rovira</span>
+              </dd>
+            </div>
+            <div>
+              <dt><span class="es">Año</span><span class="en">Year</span></dt>
+              <dd class="pendiente">?</dd>
+            </div>
+            <div>
+              <dt><span class="es">Rol</span><span class="en">Role</span></dt>
+              <dd>
+                <span class="es">Identidad visual, ilustración y diseño editorial</span
+                ><span class="en">Visual identity, illustration and editorial design</span>
+              </dd>
+            </div>
+          </dl>
+
+          <p class="es">Ruda Ediciones es una editorial uruguaya que apunta a un público de entre 20 y 50 años con la edición de autores uruguayos.</p>
+          <p class="en">Ruda Ediciones is a Uruguayan publisher of Uruguayan authors, aimed at readers aged 20 to 50.</p>
+          <p class="es">
+            La identidad visual busca remitir a las ilustraciones botánicas y emblemas antiguos; la tipografía surge del estilo Art Nouveau,
+            característico de varios lugares de Montevideo.
+          </p>
+          <p class="en">
+            The visual identity draws on botanical illustrations and old emblems; the lettering comes from the Art Nouveau style found across
+            Montevideo.
+          </p>
+          <p class="es">
+            El diseño de la colección de libros es el resultado de la conjunción de lo antiguo (el papel marmolado y la tipografía) y lo actual
+            (la libertad de estructuras en la tapa, las ilustraciones y la paleta cromática).
+          </p>
+          <p class="en">
+            The book collection combines the old (marbled paper and lettering) with the new (free-form cover structures, illustrations and colour
+            palette).
+          </p>
+        </div>
+
+        <div class="galeria">
+          <img
+            class="media ancho"
+            src="images/proyectos/ruda-logos.webp"
+            srcset="images/proyectos/ruda-logos-800.webp 800w, images/proyectos/ruda-logos.webp 1600w"
+            sizes="(max-width: 900px) 100vw, 720px"
+            width="1600"
+            height="1260"
+            loading="lazy"
+            alt="Cuatro versiones del logotipo Ruda Ediciones, con y sin ilustraciones botánicas"
+            data-alt-en="Four versions of the Ruda Ediciones logo, with and without botanical illustrations"
+          />
+          <img
+            class="media ancho"
+            src="images/proyectos/ruda-libros.webp"
+            srcset="images/proyectos/ruda-libros-800.webp 800w, images/proyectos/ruda-libros.webp 1600w"
+            sizes="(max-width: 900px) 100vw, 720px"
+            width="1600"
+            height="1044"
+            loading="lazy"
+            alt="Colección de tres libros con títulos tipográficos de colores en estilo Art Nouveau"
+            data-alt-en="Collection of three books with colourful Art Nouveau lettering on the covers"
+          />
+          <img
+            class="media ancho"
+            src="images/proyectos/ruda-interiores.webp"
+            srcset="images/proyectos/ruda-interiores-800.webp 800w, images/proyectos/ruda-interiores.webp 1600w"
+            sizes="(max-width: 900px) 100vw, 720px"
+            width="1600"
+            height="812"
+            loading="lazy"
+            alt="Interiores del libro El origen de las palabras con solapas verde y naranja"
+            data-alt-en="Interior pages of the book El origen de las palabras with green and orange flaps"
+          />
+        </div>
+
+        <nav class="proyecto__nav">
+          <a href="#proyectos">↑ <span class="es">Todos los proyectos</span><span class="en">All projects</span></a>
+          <a class="pill" href="#cordoba"><span class="es">Siguiente: Cordoba FW21-22</span><span class="en">Next: Cordoba FW21-22</span> →</a>
+        </nav>
       </article>
 
       <!-- ========== PROYECTO: Córdoba ========== -->
@@ -201,13 +609,30 @@
             <span class="es">Identidad visual · Diseño editorial</span><span class="en">Visual identity · Editorial design</span>
           </p>
 
+          <dl class="ficha">
+            <div>
+              <dt><span class="es">Cliente</span><span class="en">Client</span></dt>
+              <dd><span class="es">Palomo Spain (proyecto ficticio)</span><span class="en">Palomo Spain (fictional project)</span></dd>
+            </div>
+            <div>
+              <dt><span class="es">Año</span><span class="en">Year</span></dt>
+              <dd class="pendiente">?</dd>
+            </div>
+            <div>
+              <dt><span class="es">Rol</span><span class="en">Role</span></dt>
+              <dd>
+                <span class="es">Afiches, redes sociales y diseño de catálogo</span><span class="en">Posters, social media and catalogue design</span>
+              </dd>
+            </div>
+          </dl>
+
           <p class="es">
-            Serie de afiches + diseño de catálogo* para la colección “Córdoba” del atelier español Palomo Spain. Córdoba es una colección tributo a
+            Serie de afiches + diseño de catálogo para la colección “Córdoba” del atelier español Palomo Spain. Córdoba es una colección tributo a
             la ciudad natal de Alejandro Gómez Palomo (1992), que refleja las raíces de Córdoba, donde confluyen las culturas romana, árabe, judía y
             cristiana.
           </p>
           <p class="en">
-            Poster series + catalogue design* for the “Córdoba” collection by Spanish atelier Palomo Spain. Córdoba is a tribute to the hometown of
+            Poster series + catalogue design for the “Córdoba” collection by Spanish atelier Palomo Spain. Córdoba is a tribute to the hometown of
             Alejandro Gómez Palomo (1992), reflecting the city’s roots, where Roman, Arab, Jewish and Christian cultures meet.
           </p>
 
@@ -232,39 +657,48 @@
             The square-format catalogue features photos of every garment with descriptions in Spanish and English. Its front and back covers are
             fabric, printed with the texture of one of the collection’s scarves.
           </p>
-
-          <p class="nota"><span class="es">*proyecto ficticio</span><span class="en">*fictional project</span></p>
         </div>
 
         <div class="galeria">
           <img
             class="media ancho"
-            src="images/proyectos/cordoba-historias.jpg"
-            width="1800"
-            height="932"
+            src="images/proyectos/cordoba-historias.webp"
+            srcset="images/proyectos/cordoba-historias-800.webp 800w, images/proyectos/cordoba-historias.webp 1600w"
+            sizes="(max-width: 900px) 100vw, 720px"
+            width="1600"
+            height="828"
             loading="lazy"
             alt="Tres historias de Instagram con los afiches de la colección Córdoba"
             data-alt-en="Three Instagram stories featuring the Córdoba collection posters"
           />
           <img
             class="media ancho"
-            src="images/proyectos/cordoba-afiches.jpg"
-            width="1800"
-            height="1336"
+            src="images/proyectos/cordoba-afiches.webp"
+            srcset="images/proyectos/cordoba-afiches-800.webp 800w, images/proyectos/cordoba-afiches.webp 1600w"
+            sizes="(max-width: 900px) 100vw, 720px"
+            width="1600"
+            height="1188"
             loading="lazy"
             alt="Dos afiches: modelo de perfil con sombrero gris y con sombrero azul, y el logotipo Córdoba"
             data-alt-en="Two posters: a model in profile wearing a grey hat and a blue hat, with the Córdoba logotype"
           />
           <img
             class="media ancho"
-            src="images/proyectos/cordoba-catalogo.jpg"
-            width="1800"
-            height="1241"
+            src="images/proyectos/cordoba-catalogo.webp"
+            srcset="images/proyectos/cordoba-catalogo-800.webp 800w, images/proyectos/cordoba-catalogo.webp 1600w"
+            sizes="(max-width: 900px) 100vw, 720px"
+            width="1600"
+            height="1103"
             loading="lazy"
             alt="Maquetas del catálogo cuadrado con tapa amarilla de tela"
             data-alt-en="Mock-ups of the square catalogue with a yellow fabric cover"
           />
         </div>
+
+        <nav class="proyecto__nav">
+          <a href="#proyectos">↑ <span class="es">Todos los proyectos</span><span class="en">All projects</span></a>
+          <a class="pill" href="#emilia"><span class="es">Siguiente: Emilia</span><span class="en">Next: Emilia</span> →</a>
+        </nav>
       </article>
 
       <!-- ========== PROYECTO: Emilia ========== -->
@@ -273,27 +707,40 @@
           <h2 class="proyecto__titulo">Emilia</h2>
           <p class="etiquetas"><span class="es">Ilustración</span><span class="en">Illustration</span></p>
 
+          <dl class="ficha">
+            <div>
+              <dt><span class="es">Cliente</span><span class="en">Client</span></dt>
+              <dd><span class="es">Proyecto universitario</span><span class="en">University project</span></dd>
+            </div>
+            <div>
+              <dt><span class="es">Año</span><span class="en">Year</span></dt>
+              <dd class="pendiente">?</dd>
+            </div>
+            <div>
+              <dt><span class="es">Rol</span><span class="en">Role</span></dt>
+              <dd><span class="es">Ilustración y póster</span><span class="en">Illustration and poster</span></dd>
+            </div>
+          </dl>
+
           <p class="es">
-            Con el objetivo de crear una ilustración o producto que logre representar a un compañero*, sus intereses y su trabajo, realicé un
+            Con el objetivo de crear una ilustración o producto que logre representar a un compañero, sus intereses y su trabajo, realicé un
             póster y un icono para Emilia, fotógrafa con interés en el cine y la música.
           </p>
           <p class="en">
-            The brief was to create an illustration or product that represents a classmate*, their interests and their work. I made a poster and an
+            The brief was to create an illustration or product that represents a classmate, their interests and their work. I made a poster and an
             icon for Emilia, a photographer interested in film and music.
           </p>
           <p class="es">
             El póster fue realizado con una de las fotografías de su serie <em>“notes on childhood and dead birds” (2021—).</em>
           </p>
           <p class="en">The poster uses one of the photographs from her series <em>“notes on childhood and dead birds” (2021—).</em></p>
-
-          <p class="nota"><span class="es">*proyecto universitario</span><span class="en">*university project</span></p>
         </div>
 
         <div class="galeria">
           <figure>
             <img
               class="media"
-              src="images/proyectos/emilia-original.jpg"
+              src="images/proyectos/emilia-original.webp"
               width="550"
               height="772"
               loading="lazy"
@@ -305,7 +752,9 @@
           <figure>
             <img
               class="media"
-              src="images/proyectos/emilia-poster.jpg"
+              src="images/proyectos/emilia-poster.webp"
+              srcset="images/proyectos/emilia-poster-800.webp 800w, images/proyectos/emilia-poster.webp 1000w"
+              sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 360px"
               width="1000"
               height="1419"
               loading="lazy"
@@ -315,115 +764,11 @@
             <figcaption><span class="es">Póster</span><span class="en">Poster</span></figcaption>
           </figure>
         </div>
-      </article>
 
-      <!-- ========== PROYECTO: Ruda ========== -->
-      <article class="proyecto" id="ruda" style="--acento: #2f6b6e">
-        <div class="proyecto__texto">
-          <h2 class="proyecto__titulo">Ruda Ediciones</h2>
-          <p class="etiquetas">
-            <span class="es">Ilustración · Identidad visual · Diseño editorial</span
-            ><span class="en">Illustration · Visual identity · Editorial design</span>
-          </p>
-
-          <p class="es">
-            Ruda Ediciones es una editorial* uruguaya que apunta a un público de entre 20 y 50 años con la edición de autores uruguayos.
-          </p>
-          <p class="en">Ruda Ediciones is a Uruguayan publisher* of Uruguayan authors, aimed at readers aged 20 to 50.</p>
-          <p class="es">
-            La identidad visual busca remitir a las ilustraciones botánicas y emblemas antiguos; la tipografía surge del estilo Art Nouveau,
-            característico de varios lugares de Montevideo.
-          </p>
-          <p class="en">
-            The visual identity draws on botanical illustrations and old emblems; the lettering comes from the Art Nouveau style found across
-            Montevideo.
-          </p>
-          <p class="es">
-            El diseño de la colección de libros es el resultado de la conjunción de lo antiguo (el papel marmolado y la tipografía) y lo actual
-            (la libertad de estructuras en la tapa, las ilustraciones y la paleta cromática).
-          </p>
-          <p class="en">
-            The book collection combines the old (marbled paper and lettering) with the new (free-form cover structures, illustrations and colour
-            palette).
-          </p>
-
-          <p class="nota">
-            <span class="es">*proyecto ficticio y colaborativo con Emilia Rovira</span
-            ><span class="en">*fictional project, in collaboration with Emilia Rovira</span>
-          </p>
-        </div>
-
-        <div class="galeria">
-          <img
-            class="media ancho"
-            src="images/proyectos/ruda-logos.jpg"
-            width="1600"
-            height="1260"
-            loading="lazy"
-            alt="Cuatro versiones del logotipo Ruda Ediciones, con y sin ilustraciones botánicas"
-            data-alt-en="Four versions of the Ruda Ediciones logo, with and without botanical illustrations"
-          />
-          <img
-            class="media ancho"
-            src="images/proyectos/ruda-libros.jpg"
-            width="1800"
-            height="1175"
-            loading="lazy"
-            alt="Colección de tres libros con títulos tipográficos de colores en estilo Art Nouveau"
-            data-alt-en="Collection of three books with colourful Art Nouveau lettering on the covers"
-          />
-          <img
-            class="media ancho"
-            src="images/proyectos/ruda-interiores.jpg"
-            width="1800"
-            height="914"
-            loading="lazy"
-            alt="Interiores del libro El origen de las palabras con solapas verde y naranja"
-            data-alt-en="Interior pages of the book El origen de las palabras with green and orange flaps"
-          />
-        </div>
-      </article>
-
-      <!-- ========== PROYECTO: UCU ========== -->
-      <article class="proyecto" id="ucu" style="--acento: #1c8a87">
-        <div class="proyecto__texto">
-          <h2 class="proyecto__titulo"><span class="es">Diseño gráfico × Universidad Católica del Uruguay</span><span class="en">Graphic design × Universidad Católica del Uruguay</span></h2>
-          <p class="etiquetas">
-            <span class="es">Comunicación institucional · Vía pública · Redes sociales · Editorial</span
-            ><span class="en">Institutional communication · Outdoor · Social media · Editorial</span>
-          </p>
-
-          <p class="es">
-            Como diseñadora gráfica en UCU, colaboro en todo el proceso de creación de piezas visuales para cursos y programas de postgrado de la
-            universidad.
-          </p>
-          <p class="en">
-            As a graphic designer at UCU, I take part in the whole process of creating visual pieces for the university’s courses and postgraduate
-            programmes.
-          </p>
-          <p class="es">
-            Mi trabajo abarca desde la conceptualización hasta la adaptación de <strong>más de 100 piezas gráficas por campaña</strong>,
-            manteniendo la coherencia visual de las marcas institucionales en varios formatos: materiales digitales, impresos y cartelería pública.
-          </p>
-          <p class="en">
-            My work ranges from concept to adapting <strong>more than 100 pieces per campaign</strong>, keeping the institutional brands consistent
-            across digital, print and outdoor formats.
-          </p>
-        </div>
-
-        <div class="galeria">
-          <figure class="ancho">
-            <img
-              class="media"
-              src="images/proyectos/ucu-piezas.jpg"
-              width="1800"
-              height="1364"
-              loading="lazy"
-              alt="Cinco piezas para UCU: aviso Cinemateca, folletos de maestrías, aviso MBA, campaña de postgrados y campaña Grow To Lead"
-              data-alt-en="Five pieces for UCU: Cinemateca ad, master's brochures, MBA ad, postgraduate campaign and Grow To Lead campaign"
-            />
-          </figure>
-        </div>
+        <nav class="proyecto__nav">
+          <a href="#proyectos">↑ <span class="es">Todos los proyectos</span><span class="en">All projects</span></a>
+          <a class="pill" href="#sobremi"><span class="es">Siguiente: Sobre mí</span><span class="en">Next: About me</span> →</a>
+        </nav>
       </article>
 
       <!-- ========== SOBRE MÍ ========== -->

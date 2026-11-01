@@ -46,6 +46,29 @@ botonIdioma.addEventListener("click", () => {
 aplicarIdioma(idiomaInicial());
 
 // =========================================================
+// Menú desplegable en celular
+// =========================================================
+const botonMenu = document.querySelector("#abrir-menu");
+const enlacesMenu = document.querySelector("#menu-enlaces");
+
+function abrirMenu(abrir) {
+  enlacesMenu.classList.toggle("abierto", abrir);
+  botonMenu.setAttribute("aria-expanded", abrir);
+}
+
+botonMenu.addEventListener("click", () => {
+  abrirMenu(!enlacesMenu.classList.contains("abierto"));
+});
+
+// Se cierra al elegir una sección o al tocar la tecla Escape
+enlacesMenu.querySelectorAll("a").forEach((enlace) => {
+  enlace.addEventListener("click", () => abrirMenu(false));
+});
+document.addEventListener("keydown", (evento) => {
+  if (evento.key === "Escape") abrirMenu(false);
+});
+
+// =========================================================
 // Botón "volver arriba": aparece después de bajar un poco
 // =========================================================
 const botonArriba = document.querySelector(".arriba");

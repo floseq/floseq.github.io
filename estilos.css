@@ -200,8 +200,16 @@ a {
   align-items: center;
   gap: 24px;
 }
+.menu__enlaces {
+  display: flex;
+  gap: 24px;
+}
 .menu a {
   text-decoration: none;
+}
+/* El botón "Menú" solo aparece en celular (ver más abajo) */
+.menu__boton {
+  display: none;
 }
 .menu a:hover {
   text-decoration: underline;
@@ -390,6 +398,21 @@ a {
   margin-bottom: 14px;
   transition: transform 0.3s;
 }
+/* Tarjeta del índice sin imagen todavía (muestra el logo) */
+.indice__placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 14px;
+  border-radius: var(--radio);
+  background: var(--gris-tarjeta);
+}
+.indice__item .indice__placeholder img {
+  width: 96px;
+  aspect-ratio: auto;
+  margin: 0;
+  border-radius: 50%;
+}
 .indice__item:hover img {
   transform: scale(0.98);
 }
@@ -447,18 +470,67 @@ a {
   font-style: italic;
 }
 
-.nota {
-  margin-top: 24px;
-  font-size: 0.85rem;
+/* Ficha: cliente, año, rol y resultado */
+.ficha {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 24px;
+  margin: 0 0 28px;
+  padding: 20px 0;
+  border-top: 1px solid var(--gris-tarjeta);
+  border-bottom: 1px solid var(--gris-tarjeta);
+}
+.ficha dt {
+  font-size: 0.8rem;
   color: var(--gris-texto);
 }
+.ficha dd {
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
 
-/* Galería: dos columnas; .ancho ocupa toda la fila */
+/* Marca lo que falta completar (borrar la clase cuando esté listo) */
+.pendiente {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1.5px dashed #d97706;
+  border-radius: 8px;
+  background: #fff7ed;
+  color: #9a4a00;
+}
+p.pendiente {
+  display: block;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+}
+
+/* Recuadro gris en lugar de una imagen que todavía no está */
+.placeholder {
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  border: 2px dashed #c4c4c4;
+  border-radius: 20px;
+  background: var(--gris-tarjeta);
+  color: var(--gris-texto);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Galería en 6 columnas: por defecto cada imagen ocupa media fila (3),
+   .tercio ocupa un tercio (2) y .ancho la fila entera (6) */
 .galeria {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 20px;
   align-items: start;
+}
+.galeria > * {
+  grid-column: span 3;
+}
+.galeria > .tercio {
+  grid-column: span 2;
 }
 .galeria figure {
   margin: 0;
@@ -468,13 +540,32 @@ a {
   font-size: 0.85rem;
   color: var(--gris-texto);
 }
-.ancho {
+.galeria > .ancho {
   grid-column: 1 / -1;
 }
 .media {
   width: 100%;
   border-radius: 20px;
   background: var(--gris-tarjeta);
+}
+
+/* Enlaces al final de cada proyecto */
+.proyecto__nav {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.proyecto__nav > a:first-child {
+  color: var(--gris-texto);
+  text-decoration: none;
+}
+.proyecto__nav > a:first-child:hover {
+  color: var(--negro);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* =========================================================
@@ -640,11 +731,33 @@ a {
     gap: 14px;
     font-size: 0.9rem;
   }
-  /* En celular se ocultan los enlaces del menú y queda solo el idioma */
-  .menu a {
-    display: none;
+  /* En celular los enlaces se esconden en un desplegable */
+  .menu__boton {
+    display: inline-flex;
   }
-  .galeria,
+  .menu__enlaces {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 4px var(--margen) 16px;
+    background: var(--blanco);
+    border-bottom: 1px solid var(--gris-tarjeta);
+    font-size: 1.15rem;
+  }
+  .menu__enlaces.abierto {
+    display: flex;
+  }
+  .menu__enlaces a {
+    padding: 12px 0;
+  }
+  .galeria > *,
+  .galeria > .tercio {
+    grid-column: 1 / -1;
+  }
   .habilidades {
     grid-template-columns: 1fr;
   }
