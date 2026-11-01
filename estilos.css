@@ -207,9 +207,43 @@ a {
 .menu a {
   text-decoration: none;
 }
-/* El botón "Menú" solo aparece en celular (ver más abajo) */
+/* Botón "+" del menú: solo aparece en celular (ver más abajo) */
 .menu__boton {
   display: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+/* El "+" se dibuja con dos líneas (::before y ::after) */
+.menu__icono {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s;
+}
+.menu__icono::before,
+.menu__icono::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transform: translateY(-50%);
+}
+.menu__icono::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+/* Con el menú abierto, el "+" gira y se convierte en "×" */
+.menu__boton[aria-expanded="true"] .menu__icono {
+  transform: rotate(45deg);
 }
 .menu a:hover {
   text-decoration: underline;
@@ -733,7 +767,7 @@ p.pendiente {
   }
   /* En celular los enlaces se esconden en un desplegable */
   .menu__boton {
-    display: inline-flex;
+    display: grid;
   }
   .menu__enlaces {
     display: none;
