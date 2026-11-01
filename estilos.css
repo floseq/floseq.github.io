@@ -731,6 +731,115 @@ p.pendiente {
   border-color: var(--negro);
 }
 
+/* =========================================================
+   Visor de imágenes
+   ========================================================= */
+/* Las imágenes de los proyectos muestran una lupa al pasar el mouse */
+.galeria img.media {
+  cursor: zoom-in;
+}
+
+/* Mientras el visor está abierto, la página de fondo no se mueve */
+html:has(.visor[open]) {
+  overflow: hidden;
+}
+
+.visor {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 24px;
+  border: none;
+  background: rgba(17, 17, 17, 0.95);
+  color: var(--blanco);
+}
+.visor[open] {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  align-items: center;
+  gap: 16px;
+}
+.visor::backdrop {
+  background: transparent;
+}
+
+.visor__figura {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin: 0;
+  height: 100%;
+  align-content: center;
+}
+.visor__figura img {
+  max-width: 100%;
+  max-height: calc(100dvh - 120px);
+  object-fit: contain;
+  border-radius: 12px;
+}
+.visor__figura figcaption {
+  font-size: 0.9rem;
+  color: #c4c4c4;
+  text-align: center;
+  white-space: pre-wrap; /* respeta los espacios alrededor del "·" */
+}
+
+.visor__boton {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1.5px solid var(--blanco);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--blanco);
+  font: inherit;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.visor__boton:hover {
+  background: var(--blanco);
+  color: var(--negro);
+}
+.visor__cerrar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* =========================================================
+   Página de error 404 (404.html)
+   ========================================================= */
+.error {
+  max-width: var(--ancho-max);
+  min-height: 75vh;
+  margin: 0 auto;
+  padding: 64px var(--margen);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.error__numero {
+  margin: 0;
+  font-size: clamp(7rem, 22vw, 16rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+.error h1 {
+  margin-top: 16px;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+}
+.error__en {
+  margin: 8px 0 32px;
+  font-size: 1.2rem;
+  color: var(--gris-texto);
+}
+
 /* Texto que solo leen los lectores de pantalla */
 .solo-lector {
   position: absolute;
@@ -799,6 +908,25 @@ p.pendiente {
   }
   .habilidades {
     grid-template-columns: 1fr;
+  }
+  /* Visor en celular: la imagen ocupa todo el ancho y las flechas van abajo */
+  .visor[open] {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px;
+  }
+  .visor__figura img {
+    max-height: calc(100dvh - 200px);
+  }
+  .visor__anterior,
+  .visor__siguiente {
+    position: absolute;
+    bottom: 20px;
+  }
+  .visor__anterior {
+    left: 20px;
+  }
+  .visor__siguiente {
+    right: 20px;
   }
   .tarjeta {
     padding: 20px;

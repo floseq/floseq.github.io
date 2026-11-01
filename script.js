@@ -80,5 +80,78 @@ function mostrarBotonArriba() {
 window.addEventListener("scroll", mostrarBotonArriba, { passive: true });
 mostrarBotonArriba();
 
+// =========================================================
+// Visor de imágenes (se abre al hacer clic en una imagen)
+// =========================================================
+// Recorre las imágenes de la galería del mismo proyecto con
+// las flechas, el teclado (← →) o deslizando el dedo en celular.
+
+const visor = document.querySelector("#visor");
+const visorImagen = document.querySelector("#visor-imagen");
+const visorTexto = document.querySelector("#visor-texto");
+let imagenesDelProyecto = [];
+let posicion = 0;
+
+function mostrarImagen(nuevaPosicion) {
+  // Si pasa la última vuelve a la primera (y al revés)
+  posicion = (nuevaPosicion + imagenesDelProyecto.length) % imagenesDelProyecto.length;
+  const img = imagenesDelProyecto[posicion];
+  const figura = img.closest("figure");
+
+  visorImagen.src = img.src; // src siempre es la versión grande
+  visorImagen.alt = img.alt;
+  // innerText solo toma el texto visible (el del idioma activo)
+  const pie = figura ? figura.querySelector("figcaption").innerText : img.alt;
+  visorTexto.textContent = `${pie}  ·  ${posicion + 1} / ${imagenesDelProyecto.length}`;
+}
+
+document.querySelectorAll(".galeria img.media").forEach((img) => {
+  // Para que también se pueda abrir con el teclado
+  img.tabIndex = 0;
+  img.setAttribute("role", "button");
+
+  const abrir = () => {
+    imagenesDelProyecto = [...img.closest(".galeria").querySelectorAll("img.media")];
+    mostrarImagen(imagenesDelProyecto.indexOf(img));
+    visor.showModal();
+  };
+  img.addEventListener("click", abrir);
+  img.addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter" || evento.key === " ") {
+      evento.preventDefault();
+      abrir();
+    }
+  });
+});
+
+// Botones: cerrar, anterior y siguiente
+visor.addEventListener("click", (evento) => {
+  const accion = evento.target.closest("[data-accion]")?.dataset.accion;
+  if (accion === "cerrar") visor.close();
+  if (accion === "anterior") mostrarImagen(posicion - 1);
+  if (accion === "siguiente") mostrarImagen(posicion + 1);
+  // Clic en el fondo oscuro (fuera de la imagen y los botones): cerrar
+  if (evento.target === visor || evento.target.classList.contains("visor__figura")) visor.close();
+});
+
+// Teclado: flechas para moverse (Escape ya cierra el <dialog> solo)
+visor.addEventListener("keydown", (evento) => {
+  if (evento.key === "ArrowLeft") mostrarImagen(posicion - 1);
+  if (evento.key === "ArrowRight") mostrarImagen(posicion + 1);
+});
+
+// Celular: deslizar el dedo a izquierda o derecha
+let inicioDedo = null;
+visor.addEventListener("touchstart", (evento) => {
+  inicioDedo = evento.touches[0].clientX;
+}, { passive: true });
+visor.addEventListener("touchend", (evento) => {
+  if (inicioDedo === null) return;
+  const distancia = evento.changedTouches[0].clientX - inicioDedo;
+  if (distancia > 50) mostrarImagen(posicion - 1);
+  if (distancia < -50) mostrarImagen(posicion + 1);
+  inicioDedo = null;
+});
+
 // Año actual en el pie de página
 document.querySelector("#anio").textContent = new Date().getFullYear();

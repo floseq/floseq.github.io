@@ -1,0 +1,5 @@
+# Todos los buscadores pueden ver el sitio completo
+User-agent: *
+Allow: /
+
+Sitemap: https://floseq.github.io/sitemap.xml

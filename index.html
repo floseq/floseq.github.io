@@ -31,6 +31,27 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
     <meta name="theme-color" content="#ffffff" />
 
+    <!-- Para Google: la dirección oficial de esta página y quién es su autora -->
+    <link rel="canonical" href="https://floseq.github.io/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Florencia Sequeira",
+        "jobTitle": "Diseñadora gráfica",
+        "description": "Diseñadora gráfica con experiencia en contenido visual digital e impreso, identidad visual, diseño editorial e ilustración.",
+        "url": "https://floseq.github.io/",
+        "image": "https://floseq.github.io/images/proyectos/perfil.webp",
+        "email": "mailto:florenciasequeira@gmail.com",
+        "sameAs": ["https://www.linkedin.com/in/floseq/"],
+        "worksFor": { "@type": "CollegeOrUniversity", "name": "Universidad Católica del Uruguay" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Católica del Uruguay" },
+        "address": { "@type": "PostalAddress", "addressCountry": "UY" },
+        "knowsAbout": ["Diseño gráfico", "Identidad visual", "Diseño editorial", "Ilustración", "Comunicación institucional"],
+        "knowsLanguage": ["es", "en"]
+      }
+    </script>
+
     <link rel="preload" href="fonts/uncut-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/uncut-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="estilos.css" />
@@ -963,6 +984,26 @@
         <span class="es">Todos los derechos reservados</span><span class="en">All rights reserved</span>
       </p>
     </footer>
+
+    <!-- Visor de imágenes: se abre al hacer clic en una imagen de un proyecto (ver script.js) -->
+    <dialog class="visor" id="visor">
+      <button class="visor__boton visor__cerrar" type="button" data-accion="cerrar">
+        <span aria-hidden="true">×</span>
+        <span class="solo-lector es">Cerrar</span><span class="solo-lector en">Close</span>
+      </button>
+      <button class="visor__boton visor__anterior" type="button" data-accion="anterior">
+        <span aria-hidden="true">←</span>
+        <span class="solo-lector es">Imagen anterior</span><span class="solo-lector en">Previous image</span>
+      </button>
+      <figure class="visor__figura">
+        <img id="visor-imagen" src="data:," alt="" />
+        <figcaption id="visor-texto"></figcaption>
+      </figure>
+      <button class="visor__boton visor__siguiente" type="button" data-accion="siguiente">
+        <span aria-hidden="true">→</span>
+        <span class="solo-lector es">Imagen siguiente</span><span class="solo-lector en">Next image</span>
+      </button>
+    </dialog>
 
     <!-- Botón para volver arriba (script.js lo muestra al bajar) -->
     <a class="arriba" href="#inicio">
