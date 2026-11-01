@@ -118,6 +118,11 @@ a {
   color: inherit;
 }
 
+/* Lo que tiene el atributo hidden no se muestra nunca */
+[hidden] {
+  display: none !important;
+}
+
 :focus-visible {
   outline: 2px solid var(--azul);
   outline-offset: 3px;
