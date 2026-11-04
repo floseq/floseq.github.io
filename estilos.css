@@ -262,7 +262,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  align-items: end;
+  align-items: stretch; /* la tarjeta arranca a la altura de la foto */
   max-width: var(--ancho-max);
   margin: 0 auto;
   padding: 48px var(--margen) 96px;
@@ -285,6 +285,15 @@ a {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+/* La tarjeta ocupa el alto libre: los botones quedan alineados con el nombre */
+.hero__texto .tarjeta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
 }
 
 /* =========================================================
