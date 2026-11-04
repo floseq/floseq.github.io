@@ -81,6 +81,25 @@ window.addEventListener("scroll", mostrarBotonArriba, { passive: true });
 mostrarBotonArriba();
 
 // =========================================================
+// Cabecera: iniciales mientras el nombre se ve en el inicio o en el pie;
+// en el resto de la página, nombre completo
+// =========================================================
+const marca = document.querySelector(".marca");
+const cabecera = document.querySelector(".cabecera");
+const nombreGrande = document.querySelector(".hero__nombre");
+const nombrePie = document.querySelector(".contacto__nombre");
+
+function actualizarMarca() {
+  const enElInicio = nombreGrande.getBoundingClientRect().bottom > cabecera.offsetHeight;
+  const enElPie = nombrePie.getBoundingClientRect().top < window.innerHeight;
+  marca.classList.toggle("marca--iniciales", enElInicio || enElPie);
+}
+
+window.addEventListener("scroll", actualizarMarca, { passive: true });
+window.addEventListener("resize", actualizarMarca);
+actualizarMarca();
+
+// =========================================================
 // Visor de imágenes (se abre al hacer clic en una imagen)
 // =========================================================
 // Recorre las imágenes de la galería del mismo proyecto con

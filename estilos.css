@@ -198,6 +198,19 @@ a {
   font-size: 1.15rem;
   letter-spacing: -0.02em;
   text-decoration: none;
+  white-space: nowrap;
+}
+/* Lo que falta para pasar de "FS" al nombre completo */
+.marca__resto {
+  display: inline-block;
+  max-width: 6em;
+  overflow-x: clip;
+  transition: max-width 0.35s ease, opacity 0.25s ease;
+}
+/* Solo las iniciales mientras el nombre grande del inicio está a la vista (ver script.js) */
+.marca--iniciales .marca__resto {
+  max-width: 0;
+  opacity: 0;
 }
 
 .menu {
