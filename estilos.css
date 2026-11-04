@@ -471,12 +471,20 @@ a {
 .proyecto {
   --acento: var(--negro); /* cada proyecto lo cambia en el HTML */
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 56px;
   max-width: var(--ancho-max);
   margin: 0 auto;
   padding: 80px var(--margen);
   border-top: 1px solid var(--gris-tarjeta);
+}
+
+/* Envuelve texto y galería: así el texto fijo (sticky) se detiene al final
+   de la galería y no se superpone con la navegación del proyecto */
+.proyecto__cuerpo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 56px;
 }
 
 .proyecto__texto {
@@ -855,7 +863,7 @@ html:has(.visor[open]) {
    ========================================================= */
 @media (max-width: 900px) {
   .hero,
-  .proyecto,
+  .proyecto__cuerpo,
   .cv {
     grid-template-columns: 1fr;
   }
@@ -865,6 +873,9 @@ html:has(.visor[open]) {
   .proyecto {
     gap: 32px;
     padding: 56px var(--margen);
+  }
+  .proyecto__cuerpo {
+    gap: 32px;
   }
   .proyecto__texto {
     position: static; /* en pantallas chicas el texto no queda fijo */
