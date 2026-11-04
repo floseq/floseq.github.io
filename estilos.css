@@ -266,19 +266,26 @@ a {
   max-width: var(--ancho-max);
   margin: 0 auto;
   padding: 48px var(--margen) 96px;
+  container-type: inline-size; /* permite medir el nombre según el ancho del hero */
 }
 
 .hero__foto {
+  display: block;
   width: 100%;
+  height: 100%;
   border-radius: var(--radio);
   object-fit: cover;
 }
 
+/* El nombre ocupa todo el ancho, en una sola línea */
 .hero__nombre {
-  margin-top: 24px;
-  font-size: clamp(2.6rem, 6.5vw, 5.5rem);
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 12.4cqw;
   font-weight: 700;
   letter-spacing: -0.04em;
+  line-height: 1.05;
+  white-space: nowrap;
 }
 
 .hero__texto {
@@ -878,6 +885,9 @@ html:has(.visor[open]) {
   }
   .hero {
     padding-bottom: 64px;
+  }
+  .hero__foto {
+    height: auto;
   }
   .proyecto {
     gap: 32px;
